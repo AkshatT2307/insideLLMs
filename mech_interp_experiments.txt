@@ -1,0 +1,497 @@
+Research Plan — Extended Paper
+Does the Attention/MLP Division of Labour Scale to Domain Level?
+Target: EMNLP 2026 | Prior work: ICLR 2026 submission
+1 The Question
+A transformer has two main computational components inside each layer: the attention sublayer
+and the MLP sublayer. The mechanistic interpretability literature has established, at the level
+of individual tokens and specific factual associations, that these two components play different
+functional roles. Attention handles routing and contextual organisation — moving and aligning
+information. MLPs function as key-value memories — storing and retrieving associations between
+input patterns and output content. This picture has been built up carefully through work on feed-
+forward layers as memory, factual knowledge localisation, and circuit-level analysis of individual
+attention heads.
+What has not been established is whether this same division holds at a qualitatively coarser level
+of abstraction: entire semantic domains. When a model processes a physics abstract versus
+an economics abstract, is the same organisational principle at work? Does attention route at the
+domain level the same way it routes at the token level? Does MLP store domain-specific knowledge
+the same way it stores individual facts?
+The central question: Does the attention/MLP functional division that exists at the token
+and fact level scale up coherently to domain-level processing — and if so, what does each
+component actually contribute, and is that contribution localised or distributed across layers?
+This is not a restatement of what is already known. The token-level results are all compatible
+with a weak interpretation: that the attention/MLP division is simply an architectural artifact of
+how gradients flow through different structures during training. A division that operates at the
+level of individual tokens does not necessarily organise coherently at the level of semantic domains.
+Whether it does is an open empirical question, and answering it constrains what kind of system a
+trained transformer actually is.
+2 Why This Question Matters
+If the division does not scale to domain level — if both attention and MLP contributions are
+equally and diffusely distributed across all layers when processing domain-specific text — then
+the token-level functional specialisation is a fine-grained local phenomenon with no higher-level
+organisational counterpart. The model is, at the domain level, essentially a diffuse function ap-
+proximator. Mechanistic interpretability tools built on the token-level picture would not extend
+upward in abstraction.
+If the division does scale, and moreover if it is localised — meaning the routing function is
+compressed into a small number of identifiable attention layers rather than distributed across all of
+them — then transformers develop a hierarchical organisational principle. The same architectural
+1
+seam (attention vs. MLP) that organises computation at the token level is being used to organise
+computation at the semantic domain level, and the routing function is not diffuse but structurally
+concentrated. This changes the foundational picture of what a trained transformer is: not a diffuse
+statistical machine, but a system with identifiable, reusable structural roles operating across levels
+of abstraction. That is a meaningful constraint on how we think about interpretation, intervention,
+and what mechanistic analysis can tell us.
+The prior work (ICLR 2026 submission) found evidence for this picture but with three critical
+weaknesses: the experiments measured component outputs rather than component contributions
+to the residual stream, the causal experiment was technically flawed and uninterpretable, and the
+dataset mixed surface-form-different corpora (code, medical text, finance) where separation could
+be trivially explained by vocabulary. This work fixes all three.
+3 Our Positioning
+The existing literature establishes the attention/MLP division at the token and fact level. We ask
+whether this division scales to domain-level processing, and if so, whether it is organised (localised
+to specific layers) or diffuse. Our main contribution is to characterise the structure of this division
+— not just that it exists, but where it lives and whether it causally controls domain-level behaviour.
+We test this on arXiv abstracts across six academic disciplines: mathematics, physics, computer
+science, statistics, quantitative biology, and economics. This dataset is the right choice precisely
+because all six domains share the same surface form — all are formal academic abstracts with the
+same genre structure. Any domain separation we observe in internal representations is therefore
+genuinely semantic, not a vocabulary artifact. The cs/statistics boundary is intentionally included
+as the hardest test case.
+We study domain-level processing through a single unifying mathematical object — the domain
+concept vector — which we define rigorously, and then use consistently across all three experi-
+ments. Each experiment asks a different question, but all three speak to the same objects and all
+three results reinforce the same claim. This is not a collection of loosely related analyses; it is a
+single argument made from three angles.
+4 Mathematical Foundations
+4.1 The Residual Stream and Component Contributions
+In a standard transformer with L layers, the computation at each layer ℓ updates a residual stream
+xℓ ∈ Rd:
+xℓ+1 = xℓ + Aℓ(xℓ)
+︸ ︷︷ ︸
+∆aℓ
++ Mℓ(
+xℓ + ∆aℓ)
+︸ ︷︷ ︸
+∆mℓ
+(1)
+The quantities ∆aℓ and ∆mℓ are what attention and MLP respectively add to the stream at
+layer ℓ. These are contributions, not outputs. This distinction matters critically. Prior work
+measured xℓ + ∆aℓ (the full stream after attention) and called it “the attention output.” But this
+quantity carries the full residual stream signal — it cannot tell you what attention specifically
+contributed. We work directly with ∆aℓ and ∆mℓ throughout.
+2
+4.2 Domain Concept Vectors
+Let D1, . . . , DK be K domains. For any text x, let xℓ(x) denote the residual stream at layer ℓ.
+The global mean of the residual stream at layer ℓ is:
+μℓ = Ex[xℓ(x)]
+This is the centre of mass of all representations — what is common to every text regardless of
+domain. It encodes generic structure: “this is formal writing,” “this is a sequence of tokens.” It
+has nothing to do with any specific domain.
+The domain concept vector for domain k at layer ℓ is:
+dℓ
+k = Ex∼Dk [xℓ(x)] − μℓ (2)
+Geometrically: you first find the centroid of all representations, move the origin there, and then
+ask in which direction does domain k sit? The vector dℓ
+k points from the centre of all text toward
+the centre of domain k. Its magnitude ∥dℓ
+k∥ measures how far domain k sits from the average —
+how distinct it is. Subtracting μℓ removes shared background signal and isolates what is genuinely
+domain-specific.
+We define analogous component-specific contribution vectors:
+dattn,ℓ
+k = Ex∼Dk [∆aℓ(x)] − Ex[∆aℓ(x)] (3)
+dmlp,ℓ
+k = Ex∼Dk [∆mℓ(x)] − Ex[∆mℓ(x)] (4)
+These three objects satisfy an exact additive decomposition identity:
+dℓ+1
+k = dℓ
+k + dattn,ℓ
+k + dmlp,ℓ
+k (5)
+This follows directly from the residual stream update rule. The domain signal in the stream
+at layer ℓ + 1 is exactly the domain signal from the previous layer plus what attention
+added plus what MLP added. This identity is the mathematical backbone connecting all three
+experiments.
+4.3 The Simplex Test
+Park et al. (2024) showed that when a model cleanly separates K categories, the K mean-shifted
+concept vectors form a regular simplex in representation space — they are equally spaced in all
+directions around the origin, like the vertices of an equilateral triangle (for K = 3) generalised to
+higher dimensions.
+For a regular K-simplex, the pairwise cosine similarity between any two vertices equals exactly
+−1/(K − 1). For K = 6 domains, the ideal value is −1/5 = −0.2.
+We compute the 6 × 6 pairwise cosine similarity matrix of domain concept vectors {dℓ
+k}6
+k=1 at every
+layer, for the residual stream and for each component’s contributions separately. The simplex
+deviation at layer ℓ for a component is the Frobenius distance between the measured cosine
+similarity matrix and the ideal simplex matrix (all off-diagonals equal to −0.2, all diagonals equal
+to 1).
+3
+If attention contributions form near-simplex geometry (low simplex deviation) at hotspot layers
+while MLP contributions do not, this means attention is organising the six domains into a clean,
+symmetric, maximally-separated geometric structure — exactly what a routing mechanism should
+do. MLP doing something geometrically different (possibly more hierarchical, or more entangled)
+is consistent with the storage and execution role.
+5 Dataset
+Domain arXiv Categories Why included
+Mathematics math.* Heavily symbolic, distinct from natural lan-
+guage prose
+Physics hep-th, cond-mat,
+quant-ph
+Close to mathematics but experimentally
+grounded
+Computer Science cs.CL, cs.CV,
+cs.LG
+Empirical and systems-focused
+Statistics stat.ML, stat.ME,
+stat.TH
+Methodologically close to CS; hardest bound-
+ary
+Quant. Biology q-bio.NC,
+q-bio.GN
+Biological data and systems
+Economics econ.EM, econ.TH Social science reasoning and modelling
+Table 1: Six arXiv domains. The cs/statistics pair is the intentionally hard case.
+• 5,000 abstracts per domain (balanced), 30,000 total.
+• Filter cross-listed papers — keep only single-primary-category papers.
+• Truncate all abstracts to 256 tokens for comparability.
+• Split: 70/15/15 train/val/test, stratified by domain. Fix the split before any experiment.
+• Model: Llama-3.1-8B (base, not instruction-tuned). One primary model.
+Why arXiv? All six domains share the same genre: formal academic abstracts. The writing
+structure is identical — problem statement, method, results. Any domain separation we observe
+in internal representations is therefore genuinely about semantic content, not about vocabulary
+distribution or writing style. This is a harder and more honest test than the prior work’s mixed
+corpus of code, medical text, and finance.
+6 Experiment 1: Domain Concept Vectors and Geometric Struc-
+ture
+Question: Do the model’s representations organise the six domains into a coherent geometric
+structure? And does this structure look different for attention contributions versus MLP contribu-
+tions?
+4
+This experiment establishes the foundational objects — the domain concept vectors — that every-
+thing else is built on.
+6.1 What We Compute
+For every layer ℓ ∈ {1, . . . , L} and every domain k ∈ {1, . . . , 6}, we extract the following:
+• xℓ(x) — the full residual stream at layer ℓ for text x, extracted at the last token position.
+• ∆aℓ(x) — the attention contribution at layer ℓ: the output of the attention sublayer before
+being added to the stream. Concretely, this is the output of o_proj before the residual add.
+• ∆mℓ(x) — the MLP contribution at layer ℓ: the output of the down_proj before the residual
+add.
+We then compute domain concept vectors dℓ
+k, dattn,ℓ
+k , and dmlp,ℓ
+k for all k and ℓ as defined in
+Section 4.
+6.2 Separability: Fisher Discriminant Ratio
+The multiclass Fisher Discriminant Ratio at layer ℓ is:
+FDRℓ = tr(Sℓ
+B )
+tr(Sℓ
+W )
+where the between-class scatter is:
+Sℓ
+B =
+K∑
+k=1
+nk dℓ
+k(dℓ
+k)⊤ ⇒ tr(Sℓ
+B ) =
+K∑
+k=1
+nk∥dℓ
+k∥2
+and the within-class scatter is:
+Sℓ
+W =
+K∑
+k=1
+∑
+x∈Dk
+(xℓ(x) − μℓ
+k)(xℓ(x) − μℓ
+k)⊤
+Note the key identity: tr(Sℓ
+B ) = ∑
+k nk∥dℓ
+k∥2. The between-class scatter is literally the
+sum of squared norms of the domain concept vectors. The separability metric is a direct
+function of the concept vectors — there is no need to define separability separately, it falls out of
+the geometry automatically.
+We compute FDR separately on:
+1. The full residual stream xℓ
+2. Attention contributions ∆aℓ
+3. MLP contributions ∆mℓ
+Plot all three curves across layers on a single figure. The localisation claim is: the attention
+contribution FDR curve has sharp peaks (high variance across depth), while the MLP contribution
+FDR curve is flatter.
+We quantify localisation formally using the coefficient of variation (CV = std/mean) of each
+layer-wise FDR curve. High CV means the signal is compressed into a few layers. Low CV means
+it is distributed uniformly. This is a single interpretable number per component.
+5
+6.3 The Vocabulary Baseline
+Early layers may show high separability simply because different domains use different vocabulary.
+This would not be an interesting finding. We establish a token distribution baseline: compute
+the FDR on raw unigram token distributions per domain (i.e., the embedding-weighted mean with
+no forward pass). Any layer whose FDR does not exceed this baseline is showing separability that
+is purely vocabulary-driven. We report which layers exceed the baseline, and only those layers are
+considered meaningful.
+6.4 Simplex Test
+At each layer, compute the 6 × 6 pairwise cosine similarity matrix of {dℓ
+k}. Compute the simplex
+deviation: Frobenius distance between this matrix and the ideal simplex matrix (off-diagonals
+= −0.2, diagonals = 1). Do the same for {dattn,ℓ
+k } and {dmlp,ℓ
+k }.
+If attention contributions approach simplex geometry at the same layers where FDR peaks, this is
+strong geometric evidence of a routing mechanism: the model is organising domain representations
+into clean, symmetric, maximally-separated directions specifically through what attention adds at
+those layers.
+6.5 Visualisation
+At the layer with the highest attention contribution FDR, produce a UMAP projection of all
+30,000 residual stream points coloured by domain. Also produce the same UMAP for attention
+contributions and MLP contributions at that layer. These are not the primary evidence but are
+useful for readers to develop geometric intuition.
+Expected result: Attention contribution FDR peaks sharply at 2–4 specific mid-depth layers.
+MLP contribution FDR is flatter and lower at those same layers. The attention contribution
+simplex deviation is lower (closer to ideal geometry) at the peak layers. UMAP shows clean
+clusters for attention contributions, messier clusters for MLP contributions. Critically: the
+cs/statistics boundary is the weakest — we report it separately. If the pattern holds even
+there, that strengthens the claim.
+7 Experiment 2: Fine-Tuning Analysis
+Question: When you fine-tune the model on a specific domain, where do the weight updates
+go? Are the MLP updates larger, and more importantly, are they domain-specific rather than just
+generically large?
+This experiment tests the storage hypothesis from the adaptation side. The key improvement over
+the prior work: we do not just measure how much weights change. We measure whether MLP
+weight changes are aligned with the domain concept vectors — i.e., whether the updates specifically
+modify the directions in weight space that carry domain identity.
+7.1 Setup
+Fine-tune six separate models, one per domain, from the same Llama-3.1-8B base checkpoint using
+LoRA (rank 16, α = 32, applied to Wq, Wv, Wup, Wdown at all layers). Three epochs on each
+domain’s 3,500 training abstracts.
+6
+This gives six domain-specialised models. For each, compute the effective weight update at each
+layer. For LoRA, the update to a weight matrix W is ∆W = BA where B ∈ Rd×r and A ∈ Rr×d.
+We work with ∆W directly.
+7.2 Metric 1 — Weight Change Norms (Replication)
+The relative weight change:
+δ(k),ℓ
+mlp = ∥∆W (k),ℓ
+mlp ∥F
+∥W ℓ
+mlp,base∥F
+, δ(k),ℓ
+attn = ∥∆W (k),ℓ
+attn ∥F
+∥W ℓ
+attn,base∥F
+Plot layer-wise δattn vs δmlp for each of the 6 domains. This replicates the prior work’s Figure 2,
+now on arXiv. The 2–3× difference should hold across domains. If it does, it supports the claim
+and shows generality. If it does not, that is a significant finding in itself.
+7.3 Metric 2 — Domain-Specificity of Updates
+This is the key new metric. For each layer ℓ, we have six weight update matrices: ∆W (1)
+ℓ , . . . , ∆W (6)
+ℓ
+(one per domain). We ask: are these updates differentiated from each other?
+Compute the pairwise cosine similarity between vectorised weight updates:
+sim(k, k′)ℓ = ⟨vec(∆W (k)
+ℓ ), vec(∆W (k′)
+ℓ )⟩
+∥vec(∆W (k)
+ℓ )∥ · ∥vec(∆W (k′)
+ℓ )∥
+Do this separately for MLP and attention updates. Produce 6×6 cross-domain update similarity
+matrices at selected layers.
+The prediction: MLP updates should be more domain-differentiated (lower cross-domain cosine
+similarity) than attention updates. This means when you fine-tune on physics, the MLP update
+looks different from when you fine-tune on economics — the updates are genuinely learning domain-
+specific things. Attention updates, by contrast, should be more similar across domains — attention
+adapts generically regardless of which domain you are learning.
+This directly answers reviewer R4WC’s complaint about the prior work: that large MLP updates
+might just mean MLP has a favourable optimisation landscape. Domain-differentiation of updates
+is not explained by optimisation dynamics — it is a content argument.
+7.4 Metric 3 — Alignment with Domain Concept Vectors
+The deepest metric. For each domain k and each layer ℓ, we ask: does the MLP weight update
+∆W (k),ℓ
+mlp operate specifically in the domain-k direction in representation space?
+Define the domain alignment of the weight update:
+ρmlp,ℓ
+k = ∥∆W (k),ℓ
+mlp ˆdmlp,ℓ
+k ∥
+∥∆W (k),ℓ
+mlp ∥F
+where ˆdmlp,ℓ
+k is the unit domain concept vector for domain k (from Experiment 1). This quantity
+measures: when you apply the weight update to the domain-k direction in activation space, how
+large is the output relative to the total norm of the update? High ρ means the update is specifically
+7
+moving the domain-k direction. Low ρ means the update is orthogonal to the domain concept vector
+— it is changing something unrelated to domain identity.
+Compute ρmlp,ℓ
+k and ρattn,ℓ
+k for all domains and layers. The prediction: MLP updates have higher
+alignment with domain concept vectors than attention updates. This is the quantitative statement
+that MLP adapts in the directions that carry domain identity.
+This metric directly uses the concept vectors from Experiment 1 inside the adaptation analysis. The
+domain concept vector is the glue: it was computed from the forward pass geometry in Experiment
+1, and here it is used to evaluate whether training updates specifically modify those geometric
+directions.
+Expected result: MLP updates are 2–3× larger in norm (replication), more domain-differentiated
+(lower cross-domain similarity), and more aligned with domain concept vectors. Attention up-
+dates are smaller, more uniform across domains, and less aligned. Pattern holds for all six
+domains. If any domain breaks the pattern, investigate and report it — the cs/statistics
+boundary is the most likely candidate.
+8 Experiment 3: Causal Activation Patching
+Question: Is the domain signal in attention causally responsible for domain-directed behaviour?
+And if so, does it propagate through MLP layers downstream, or does it ride passively through the
+stream?
+The first two experiments are observational and adaptive. This experiment is causal. It asks: if
+you surgically change the domain routing signal in attention at a specific layer, does the model’s
+subsequent computation change in a directed, domain-consistent way?
+8.1 Concept Direction Patching
+Previous approaches to activation patching replaced the full activation at a given layer with that
+from a different input. This is too coarse: it transfers not just the domain signal but all content-
+specific structure in the activation. The results are uninterpretable.
+We patch only along the domain concept direction. For a source text xA ∈ DA and target domain
+B, the patched attention contribution at layer ℓ∗ is:
+˜∆aℓ∗
+(xA) = ∆aℓ∗
+(xA) −
+〈
+∆aℓ∗
+(xA), ˆdattn,ℓ∗
+A
+〉 ˆdattn,ℓ∗
+A
+︸ ︷︷ ︸
+remove domain-A component
++ α · ˆdattn,ℓ∗
+B
+︸ ︷︷ ︸
+inject domain-B component
+(6)
+where ˆdattn,ℓ
+k is the unit domain concept vector for domain k, and α is chosen to match the
+typical projection magnitude of domain-B representations onto their own concept vector (so the
+injected signal is calibrated, not arbitrary).
+This operation subtracts the domain-A component from the attention contribution and replaces
+it with a domain-B component of natural magnitude. Everything else in the activation — all the
+token-level and content-specific structure — is left intact. The patched forward pass then continues
+normally for all layers after ℓ∗.
+8
+8.2 Measuring the Effect
+We measure two things:
+(1) Final domain shift. At the final residual stream ˜xL, compute:
+shift(ℓ∗) =
+〈
+˜xL − xL(xA), dL
+B − dL
+A
+∥dL
+B − dL
+A∥
+〉
+This measures how much the final representation moved in the direction from domain A toward
+domain B as a result of the patch. Average across 200 pairs (xA, xB ) for each of the 15 domain
+pairs, and across all choices of ℓ∗ (one per layer). Plot the resulting curve: domain shift as a
+function of patch layer ℓ∗. A sharp peak at the same layers where attention contribution FDR
+peaked in Experiment 1 is the causal confirmation of the localization claim.
+Run the same patch on MLP contributions (replacing the domain-A component of ∆mℓ∗
+with
+domain-B). The prediction: MLP patches produce less directed shift (lower or noisier shift scores)
+— not because MLP is unimportant, but because the domain routing signal does not live there.
+(2) Propagation analysis. This is the piece that connects the causal result back to the functional
+roles.
+After a patch at hotspot layer ℓ∗, track the domain shift score at every intermediate layer ℓ > ℓ∗:
+sℓ =
+〈
+˜xℓ − xℓ(xA), dℓ
+B − dℓ
+A
+∥dℓ
+B − dℓ
+A∥
+〉
+(7)
+Note that the concept vectors in the denominator are layer-specific and computed from clean
+forward passes, so they are different at each layer. This makes the projection geometrically well-
+defined at every layer.
+The domain shift score sℓ tells you: at layer ℓ, how much has the patched stream moved toward
+domain B relative to the clean stream? By tracking this across layers, you get a picture of how the
+injected signal propagates through subsequent computation.
+8.3 What Propagation Tells You
+There are three possible outcomes, all interpretable:
+Signal amplifies through downstream MLP layers. The shift score sℓ grows specifically
+at the MLP sublayers immediately following the patch. This is the clearest confirmation of the
+routing/execution picture: attention at ℓ∗ injected a domain signal, and downstream MLP layers
+responded to it by amplifying domain-B-consistent computation. The routing decision at attention
+triggers execution in MLP.
+Signal persists but does not amplify. sℓ stays roughly constant after the patch. The domain-B
+signal rides along in the stream without anything actively responding to it. This is a weaker version
+of the routing hypothesis: attention controls what is in the stream, but MLP does not specially act
+on domain signals at this level of abstraction. Still interpretable and publishable.
+Signal decays. sℓ decreases after the patch — downstream layers actively pull the stream back
+toward domain-A processing. This would mean domain identity is maintained redundantly across
+multiple layers, not localised at the hotspots. This would challenge the localisation claim and is
+the most important failure mode to watch for.
+9
+The key figure: x-axis is layer index from ℓ∗ onward, y-axis is mean shift score averaged across
+domain pairs, with one curve for patches at hotspot attention layers and one for patches at non-
+hotspot layers (and MLP). If the hotspot curve rises and the others do not, you have both causal
+confirmation and a mechanistic account of how the signal propagates.
+On circularity. The patch uses concept vectors dattn,ℓ∗
+k (from attention contributions). The
+measurement uses residual stream vectors dℓ
+k (from the full stream at each layer). These are
+different objects computed from different quantities. Patching along the attention contribution
+direction does not guarantee the residual stream will align with its own domain concept vectors
+downstream — that must be demonstrated empirically. There is no circularity. One thing to
+verify: the magnitude of the injected perturbation ∥˜xℓ∗
+− xℓ∗
+(xA)∥ should be small relative
+to the within-domain spread
+√
+tr(Sℓ∗
+W ). Report this ratio to confirm the linear approximation
+is valid.
+9 What the Experiments Say Together
+Each experiment asks a different question, all about the same objects:
+1. Concept vectors + separability: Do attention contributions at specific layers carry dispro-
+portionate domain signal, and is it geometrically organised? (Observational)
+2. Fine-tuning: Do weight updates during domain-specific training modify the directions in MLP
+weight space that correspond to domain concept vectors? (Adaptive)
+3. Causal patching: Does surgically injecting a domain concept direction into attention at
+hotspot layers cause directed domain shifts that propagate through downstream MLP? (Causal)
+If all three work, the argument is:
+• Attention contributes disproportionate, localised, geometrically-organised domain signal at spe-
+cific layers (Experiment 1).
+• MLP weight updates are larger, more domain-specific, and specifically aligned with domain
+concept vectors (Experiment 2).
+• Patching the domain direction in attention at those specific layers causes directed domain shifts
+that are amplified by downstream MLP layers (Experiment 3).
+Together: the attention/MLP functional division scales to domain level. Routing is compressed
+into identifiable attention layers. Execution happens in MLP. The organisation is not diffuse but
+structural.
+10 Open Questions Before Starting
+1. Run a sanity check first. Before the full dataset, run Experiment 1 on 500 examples per
+domain with one layer. If the concept vectors are reasonable and FDR is non-trivial, proceed.
+If not, investigate the hooking methodology.
+10
+2. cs/statistics boundary. Before fixing the corpus, check whether FDR between cs and stat is
+above the vocabulary baseline at any layer. If not, consider merging them and adding a different
+sixth domain, or keep them and frame the result as showing the limits of the model’s domain
+organisation.
+3. Token position. We use the last-token representation throughout. Also check mean-pooled
+representations. If results differ substantially, report both and discuss.
+4. Patch calibration. For Experiment 3, the scale of α in equation 6 needs to be set carefully.
+Use α = Ex∼DB [⟨∆aℓ∗
+(x), ˆdattn,ℓ∗
+B ⟩] — the average projection of domain-B texts onto their own
+concept vector. This calibrates the injected signal to match what a real domain-B representation
+would contribute.
+5. Statistical testing. Report confidence intervals from bootstrap resampling across abstract
+pairs for the shift scores in Experiment 3. Report standard deviations across domains for
+metrics in Experiment 2.
+11

@@ -1,0 +1,81 @@
+{
+  "experiment": "6.2 \u2014 Fisher Discriminant Ratio Separability",
+  "domains": [
+    "q-bio",
+    "cs",
+    "math",
+    "physics",
+    "stat",
+    "eess"
+  ],
+  "sample_counts": {
+    "q-bio": 15000,
+    "cs": 15000,
+    "math": 15000,
+    "physics": 15000,
+    "stat": 15000,
+    "eess": 14560
+  },
+  "num_layers": 28,
+  "hidden_dim": 3584,
+  "computation_time_seconds": 282.1,
+  "last": {
+    "attn": {
+      "cv": 0.57705,
+      "fdr_mean": 0.062365,
+      "fdr_std": 0.035988,
+      "fdr_min": 0.020402,
+      "fdr_max": 0.178872,
+      "peak_layer": 22,
+      "peak_fdr": 0.178872,
+      "top5_layers": [
+        22,
+        19,
+        24,
+        23,
+        10
+      ]
+    },
+    "mlp": {
+      "cv": 0.62572,
+      "fdr_mean": 0.07481,
+      "fdr_std": 0.04681,
+      "fdr_min": 0.013047,
+      "fdr_max": 0.164364,
+      "peak_layer": 23,
+      "peak_fdr": 0.164364,
+      "top5_layers": [
+        23,
+        19,
+        24,
+        22,
+        21
+      ]
+    },
+    "layer": {
+      "cv": 0.542056,
+      "fdr_mean": 0.087155,
+      "fdr_std": 0.047243,
+      "fdr_min": 0.02323,
+      "fdr_max": 0.168808,
+      "peak_layer": 24,
+      "peak_fdr": 0.168808,
+      "top5_layers": [
+        24,
+        25,
+        23,
+        26,
+        22
+      ]
+    }
+  },
+  "localisation_analysis": {
+    "last": {
+      "attn_cv": 0.57705,
+      "mlp_cv": 0.62572,
+      "layer_cv": 0.542056,
+      "attn_over_mlp_ratio": 0.9222,
+      "attn_more_localised": false
+    }
+  }
+}

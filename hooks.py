@@ -166,14 +166,13 @@ class ActivationStore:
         layer_idx : int
             Index of the decoder layer (0-based).
         output_is_tuple : bool
-            If True, take ``output[0]`` (for self_attn and full layer).
-            If False, use ``output`` directly (for MLP).
+            Legacy hint. Output is now inspected dynamically to support both
+            single Tensors and tuples.
         """
 
         def hook_fn(module, input, output):
-            act = output[0] if output_is_tuple else output
-            # Defensive: some implementations wrap in another tuple
-            if isinstance(act, tuple):
+            act = output
+            while isinstance(act, tuple):
                 act = act[0]
             last, mean = self._pool(act)
             self._pooled[(component, "last", layer_idx)] = last

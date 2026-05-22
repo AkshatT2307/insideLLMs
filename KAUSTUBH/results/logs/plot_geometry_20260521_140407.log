@@ -1,0 +1,9 @@
+[plot_geometry] started at 20260521_140407
+============================================================
+Generating geometry plots...
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/geometry/simplex_deviation.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/geometry/concept_norms.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/geometry/cosine_heatmaps_attn.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/geometry/cosine_heatmaps_mlp.png
+
+Done.

@@ -1,0 +1,69 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# LoRA Fine-Tuning Configuration — ArXiv Domain Adaptation
+# ══════════════════════════════════════════════════════════════════════════════
+# All parameters are tunable from here. No code changes needed.
+
+# ── Model ────────────────────────────────────────────────────────────────────
+model:
+  name: "Qwen/Qwen2.5-7B"
+  dtype: "bfloat16"               # float16 | bfloat16 | float32
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data:
+  source_dir: "../../arxiv_data"            # path to raw CSVs (relative to scripts/)
+  output_dir: "../datasets"                 # where prepared splits are saved
+  domains:
+    - "cs"
+    - "eess"
+    - "math"
+    - "physics"
+    - "q-bio"
+    - "stat"
+  n_train: 3000
+  n_val: 1000
+  n_test: 1000
+  max_length: 256                           # tokenizer truncation / padding length
+  seed: 42
+  text_column: "text"
+
+# ── Training ─────────────────────────────────────────────────────────────────
+training:
+  num_epochs: 3
+  train_batch_size: 4                       # per-GPU micro-batch for training
+  eval_batch_size: 32                       # per-GPU micro-batch for evaluation
+  gradient_accumulation_steps: 8            # effective batch = train_batch_size × this
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  lr_scheduler: "cosine"                    # cosine | linear | constant
+  warmup_ratio: 0.05
+  max_grad_norm: 1.0
+  bf16: true
+  dataloader_num_workers: 4
+  logging_steps: 5                         # 94 steps/epoch ÷ 47 ≈ 19
+  save_strategy: "epoch"                    # save adapter after each epoch
+
+# ── LoRA ─────────────────────────────────────────────────────────────────────
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.1
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+# ── Paths ────────────────────────────────────────────────────────────────────
+paths:
+  adapter_dir: "../adapters"                # LoRA checkpoints
+  log_dir: "../logs"                        # training logs and results
+
+# ── GPU ──────────────────────────────────────────────────────────────────────
+gpu:
+  multi_gpu: false                          # set true for DataParallel on all GPUs
+  device: "cuda:0"                          # primary device (ignored if multi_gpu=true)

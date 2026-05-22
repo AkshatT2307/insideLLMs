@@ -1,0 +1,674 @@
+{
+  "0": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01327906138884607,
+      "simple_mean_rho": 0.014098977325654554,
+      "total_frobenius_norm": 1.1626720276397464,
+      "per_module_rho": {
+        "q_proj": 0.016417590946351125,
+        "k_proj": 0.020392299350550692,
+        "v_proj": 0.009956710321237228,
+        "o_proj": 0.009629308684479167
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.021438900438402058,
+      "simple_mean_rho": 0.0256075959111834,
+      "total_frobenius_norm": 3.1444537941827315,
+      "per_module_rho": {
+        "gate_proj": 0.02373095758943101,
+        "up_proj": 0.00808158917605984,
+        "down_proj": 0.04501024096805935
+      },
+      "pooled_rho_no_down_proj": 0.01586453297748915
+    }
+  },
+  "1": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01317567495209156,
+      "simple_mean_rho": 0.013523246540690835,
+      "total_frobenius_norm": 1.1008584282456262,
+      "per_module_rho": {
+        "q_proj": 0.016329827285834358,
+        "k_proj": 0.011518694345884225,
+        "v_proj": 0.018303691337629827,
+        "o_proj": 0.007940773193414932
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.029130199396466182,
+      "simple_mean_rho": 0.028286388350755604,
+      "total_frobenius_norm": 2.4768479657589557,
+      "per_module_rho": {
+        "gate_proj": 0.022957238578620677,
+        "up_proj": 0.044670726420813364,
+        "down_proj": 0.01723120005283277
+      },
+      "pooled_rho_no_down_proj": 0.033316057410182336
+    }
+  },
+  "2": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.017705303783192863,
+      "simple_mean_rho": 0.016657551375419546,
+      "total_frobenius_norm": 1.126452108394044,
+      "per_module_rho": {
+        "q_proj": 0.011875492525431686,
+        "k_proj": 0.012294114623655428,
+        "v_proj": 0.018372818222249343,
+        "o_proj": 0.024087780130341723
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.014340329843285652,
+      "simple_mean_rho": 0.01761871344991461,
+      "total_frobenius_norm": 3.9803839212817262,
+      "per_module_rho": {
+        "gate_proj": 0.004838174413475733,
+        "up_proj": 0.011672935784869847,
+        "down_proj": 0.03634503015139825
+      },
+      "pooled_rho_no_down_proj": 0.007817801697748412
+    }
+  },
+  "3": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.015203770592140887,
+      "simple_mean_rho": 0.014904285964972152,
+      "total_frobenius_norm": 1.1368566682118684,
+      "per_module_rho": {
+        "q_proj": 0.01941546621502125,
+        "k_proj": 0.01747568450004429,
+        "v_proj": 0.009386489545754037,
+        "o_proj": 0.013339503599069031
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.014736442788766393,
+      "simple_mean_rho": 0.01655480405325795,
+      "total_frobenius_norm": 3.977434444056407,
+      "per_module_rho": {
+        "gate_proj": 0.008640372765155377,
+        "up_proj": 0.02139162148289469,
+        "down_proj": 0.019632417911723786
+      },
+      "pooled_rho_no_down_proj": 0.013328085089978962
+    }
+  },
+  "4": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.015119727126806615,
+      "simple_mean_rho": 0.014216538733904462,
+      "total_frobenius_norm": 1.0911988060687021,
+      "per_module_rho": {
+        "q_proj": 0.012150754650322802,
+        "k_proj": 0.011609942201378612,
+        "v_proj": 0.012759452468213014,
+        "o_proj": 0.02034600561570342
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.0304590087398932,
+      "simple_mean_rho": 0.03702814614730184,
+      "total_frobenius_norm": 3.787155032790719,
+      "per_module_rho": {
+        "gate_proj": 0.024634685065695307,
+        "up_proj": 0.012207873016620664,
+        "down_proj": 0.07424188035958956
+      },
+      "pooled_rho_no_down_proj": 0.01989619801536239
+    }
+  },
+  "5": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01336535746163348,
+      "simple_mean_rho": 0.012675776419385106,
+      "total_frobenius_norm": 1.1108596429905058,
+      "per_module_rho": {
+        "q_proj": 0.015358612106549124,
+        "k_proj": 0.013752776237426559,
+        "v_proj": 0.007880007547622124,
+        "o_proj": 0.013711709785942616
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.03958144492237987,
+      "simple_mean_rho": 0.04149008627133333,
+      "total_frobenius_norm": 3.3099589416216144,
+      "per_module_rho": {
+        "gate_proj": 0.03250177086835426,
+        "up_proj": 0.04691023240116608,
+        "down_proj": 0.04505825554447966
+      },
+      "pooled_rho_no_down_proj": 0.03828170977823943
+    }
+  },
+  "6": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.012791387995514747,
+      "simple_mean_rho": 0.0134406306645493,
+      "total_frobenius_norm": 1.0346854693741563,
+      "per_module_rho": {
+        "q_proj": 0.012581629231437618,
+        "k_proj": 0.01640939578616406,
+        "v_proj": 0.013237083541623335,
+        "o_proj": 0.011534414098972188
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.023621725424379306,
+      "simple_mean_rho": 0.023318970447687493,
+      "total_frobenius_norm": 2.930048604564984,
+      "per_module_rho": {
+        "gate_proj": 0.029782550417641395,
+        "up_proj": 0.01358323960235761,
+        "down_proj": 0.02659112132306348
+      },
+      "pooled_rho_no_down_proj": 0.02279313119381054
+    }
+  },
+  "7": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.017974530062765767,
+      "simple_mean_rho": 0.017537846381376017,
+      "total_frobenius_norm": 1.0833115369794806,
+      "per_module_rho": {
+        "q_proj": 0.018937968351384265,
+        "k_proj": 0.01726809528013067,
+        "v_proj": 0.015645419584226657,
+        "o_proj": 0.018299902309762476
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.04148062292379815,
+      "simple_mean_rho": 0.04204489716133885,
+      "total_frobenius_norm": 3.0267689441134076,
+      "per_module_rho": {
+        "gate_proj": 0.0467196386466053,
+        "up_proj": 0.026502717186985908,
+        "down_proj": 0.05291233565042533
+      },
+      "pooled_rho_no_down_proj": 0.037985107918519515
+    }
+  },
+  "8": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01677389962762222,
+      "simple_mean_rho": 0.01911395979882235,
+      "total_frobenius_norm": 1.1592456017231132,
+      "per_module_rho": {
+        "q_proj": 0.023521079116146724,
+        "k_proj": 0.033122088212123535,
+        "v_proj": 0.011826867916321059,
+        "o_proj": 0.007985803950698082
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.01545762997905405,
+      "simple_mean_rho": 0.014704847892863818,
+      "total_frobenius_norm": 2.9783416573101054,
+      "per_module_rho": {
+        "gate_proj": 0.019004054020938847,
+        "up_proj": 0.012792641705366403,
+        "down_proj": 0.0123178479522862
+      },
+      "pooled_rho_no_down_proj": 0.016408087823388786
+    }
+  },
+  "9": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.019427561612595824,
+      "simple_mean_rho": 0.021327234327058523,
+      "total_frobenius_norm": 1.2356208468010308,
+      "per_module_rho": {
+        "q_proj": 0.020786029988864415,
+        "k_proj": 0.0284818469671332,
+        "v_proj": 0.02323866822352979,
+        "o_proj": 0.012802392128706699
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.06684085724580174,
+      "simple_mean_rho": 0.05464561998207287,
+      "total_frobenius_norm": 3.8201833696639786,
+      "per_module_rho": {
+        "gate_proj": 0.09281781800550669,
+        "up_proj": 0.03106837014446296,
+        "down_proj": 0.04005067179624895
+      },
+      "pooled_rho_no_down_proj": 0.07198783650309684
+    }
+  },
+  "10": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.014883972675321974,
+      "simple_mean_rho": 0.01443815781881305,
+      "total_frobenius_norm": 1.0825782483102284,
+      "per_module_rho": {
+        "q_proj": 0.017063882991919344,
+        "k_proj": 0.01123700793027416,
+        "v_proj": 0.015680807444085395,
+        "o_proj": 0.013770932908973308
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.02488868054983887,
+      "simple_mean_rho": 0.0217949317468014,
+      "total_frobenius_norm": 3.2669680677685022,
+      "per_module_rho": {
+        "gate_proj": 0.03557971704424591,
+        "up_proj": 0.01654947304277867,
+        "down_proj": 0.01325560515337961
+      },
+      "pooled_rho_no_down_proj": 0.027865922421793723
+    }
+  },
+  "11": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.015019923800243529,
+      "simple_mean_rho": 0.01617273511887485,
+      "total_frobenius_norm": 1.1319372769380582,
+      "per_module_rho": {
+        "q_proj": 0.016824775549559117,
+        "k_proj": 0.017962550266791846,
+        "v_proj": 0.01872452750804345,
+        "o_proj": 0.011179087151104989
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.024720407674800902,
+      "simple_mean_rho": 0.022162071694975565,
+      "total_frobenius_norm": 2.9007854017549493,
+      "per_module_rho": {
+        "gate_proj": 0.03269039824409674,
+        "up_proj": 0.02318541011460629,
+        "down_proj": 0.01061040672622367
+      },
+      "pooled_rho_no_down_proj": 0.0283538922802107
+    }
+  },
+  "12": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01543103313368832,
+      "simple_mean_rho": 0.014844310646798866,
+      "total_frobenius_norm": 1.1454930362399245,
+      "per_module_rho": {
+        "q_proj": 0.02345861047154206,
+        "k_proj": 0.014316586385215936,
+        "v_proj": 0.012263527732153043,
+        "o_proj": 0.009338517998284423
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.022828728077495693,
+      "simple_mean_rho": 0.023830075319822203,
+      "total_frobenius_norm": 3.092681657258068,
+      "per_module_rho": {
+        "gate_proj": 0.021624142252602237,
+        "up_proj": 0.01894449496951931,
+        "down_proj": 0.030921588737345056
+      },
+      "pooled_rho_no_down_proj": 0.020486119685939358
+    }
+  },
+  "13": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.014117404320129444,
+      "simple_mean_rho": 0.013564635218765688,
+      "total_frobenius_norm": 1.1184498141596146,
+      "per_module_rho": {
+        "q_proj": 0.016695170094025196,
+        "k_proj": 0.014928894088447772,
+        "v_proj": 0.009262586863891541,
+        "o_proj": 0.013371889828698247
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.017109524155488554,
+      "simple_mean_rho": 0.019975551299773256,
+      "total_frobenius_norm": 2.867060427655363,
+      "per_module_rho": {
+        "gate_proj": 0.012491038377651165,
+        "up_proj": 0.017161783519306802,
+        "down_proj": 0.030273832002361802
+      },
+      "pooled_rho_no_down_proj": 0.014371703085845521
+    }
+  },
+  "14": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.016337897776898945,
+      "simple_mean_rho": 0.016831495069441104,
+      "total_frobenius_norm": 1.0828050786023797,
+      "per_module_rho": {
+        "q_proj": 0.01667606608410058,
+        "k_proj": 0.01696057466706469,
+        "v_proj": 0.018907448981493723,
+        "o_proj": 0.014781890545105422
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.015756905118525746,
+      "simple_mean_rho": 0.01480675366159471,
+      "total_frobenius_norm": 2.809507767929896,
+      "per_module_rho": {
+        "gate_proj": 0.018032864613049635,
+        "up_proj": 0.014863250500237464,
+        "down_proj": 0.011524145871497032
+      },
+      "pooled_rho_no_down_proj": 0.016715971600387444
+    }
+  },
+  "15": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.022564996139219837,
+      "simple_mean_rho": 0.019474365708973658,
+      "total_frobenius_norm": 1.1232514894553545,
+      "per_module_rho": {
+        "q_proj": 0.01649841631054362,
+        "k_proj": 0.012588569880726036,
+        "v_proj": 0.014118130705932585,
+        "o_proj": 0.0346923459386924
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.04982622248370747,
+      "simple_mean_rho": 0.03927695627924854,
+      "total_frobenius_norm": 2.9404006766871174,
+      "per_module_rho": {
+        "gate_proj": 0.07722341731072763,
+        "up_proj": 0.029062097909518785,
+        "down_proj": 0.01154535361749922
+      },
+      "pooled_rho_no_down_proj": 0.05799715709214018
+    }
+  },
+  "16": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.017744056594718564,
+      "simple_mean_rho": 0.017534453678171663,
+      "total_frobenius_norm": 1.1289996497793429,
+      "per_module_rho": {
+        "q_proj": 0.012538646210644967,
+        "k_proj": 0.023078466601063292,
+        "v_proj": 0.01156839135802015,
+        "o_proj": 0.022952310542958237
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.016931322959417613,
+      "simple_mean_rho": 0.01720330704318124,
+      "total_frobenius_norm": 2.6785137670931576,
+      "per_module_rho": {
+        "gate_proj": 0.018729858157051023,
+        "up_proj": 0.013054660001680238,
+        "down_proj": 0.019825402970812464
+      },
+      "pooled_rho_no_down_proj": 0.016240134938158932
+    }
+  },
+  "17": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01585670793042618,
+      "simple_mean_rho": 0.013954809270769392,
+      "total_frobenius_norm": 1.1226355921522386,
+      "per_module_rho": {
+        "q_proj": 0.01804321228569853,
+        "k_proj": 0.012557159035409998,
+        "v_proj": 0.007169175293112239,
+        "o_proj": 0.018049690468856794
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.014796677627178666,
+      "simple_mean_rho": 0.016389685368654417,
+      "total_frobenius_norm": 2.9688273699774204,
+      "per_module_rho": {
+        "gate_proj": 0.010977689411810076,
+        "up_proj": 0.01564264913511528,
+        "down_proj": 0.022548717559037895
+      },
+      "pooled_rho_no_down_proj": 0.012856090830400145
+    }
+  },
+  "18": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01449567730190293,
+      "simple_mean_rho": 0.014168988038897445,
+      "total_frobenius_norm": 1.1178876503118804,
+      "per_module_rho": {
+        "q_proj": 0.016196526748051703,
+        "k_proj": 0.011069313593630253,
+        "v_proj": 0.015807129986612652,
+        "o_proj": 0.013602981827295172
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.026167689488802527,
+      "simple_mean_rho": 0.025983449800303884,
+      "total_frobenius_norm": 3.062658881935609,
+      "per_module_rho": {
+        "gate_proj": 0.026747533991943913,
+        "up_proj": 0.025867848501684023,
+        "down_proj": 0.025334966907283717
+      },
+      "pooled_rho_no_down_proj": 0.02637673787789856
+    }
+  },
+  "19": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01958469898130947,
+      "simple_mean_rho": 0.020090573285990957,
+      "total_frobenius_norm": 1.11297217960294,
+      "per_module_rho": {
+        "q_proj": 0.019520525416818323,
+        "k_proj": 0.011241032624226073,
+        "v_proj": 0.032324668986418455,
+        "o_proj": 0.01727606611650097
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.023936903483687058,
+      "simple_mean_rho": 0.023805863590057152,
+      "total_frobenius_norm": 3.2224957074200296,
+      "per_module_rho": {
+        "gate_proj": 0.024818611125428366,
+        "up_proj": 0.022277201730681505,
+        "down_proj": 0.024321777914061583
+      },
+      "pooled_rho_no_down_proj": 0.023863742562325225
+    }
+  },
+  "20": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01493197393317534,
+      "simple_mean_rho": 0.015407051581735587,
+      "total_frobenius_norm": 1.0906594133129406,
+      "per_module_rho": {
+        "q_proj": 0.012102932088120464,
+        "k_proj": 0.01660805176737327,
+        "v_proj": 0.01645092662058963,
+        "o_proj": 0.01646629585085898
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.010854078070740729,
+      "simple_mean_rho": 0.011763371334970059,
+      "total_frobenius_norm": 2.914941982660924,
+      "per_module_rho": {
+        "gate_proj": 0.006648302386198275,
+        "up_proj": 0.01592416731649444,
+        "down_proj": 0.012717644302217458
+      },
+      "pooled_rho_no_down_proj": 0.010491803883133059
+    }
+  },
+  "21": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01716435238014558,
+      "simple_mean_rho": 0.01848225694820493,
+      "total_frobenius_norm": 1.1028776410950933,
+      "per_module_rho": {
+        "q_proj": 0.01668793564798379,
+        "k_proj": 0.024507954826979386,
+        "v_proj": 0.018237425751278753,
+        "o_proj": 0.014495711566577796
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.013866071608062544,
+      "simple_mean_rho": 0.017087521592629547,
+      "total_frobenius_norm": 2.952717988402383,
+      "per_module_rho": {
+        "gate_proj": 0.011101283249412734,
+        "up_proj": 0.01047223674892767,
+        "down_proj": 0.029689044779548233
+      },
+      "pooled_rho_no_down_proj": 0.010850485416643648
+    }
+  },
+  "22": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.018805539314152034,
+      "simple_mean_rho": 0.018534574520096304,
+      "total_frobenius_norm": 1.121409529064001,
+      "per_module_rho": {
+        "q_proj": 0.020481529045807145,
+        "k_proj": 0.015230013188565103,
+        "v_proj": 0.02074978734408186,
+        "o_proj": 0.017676968501931102
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.011324197100874343,
+      "simple_mean_rho": 0.014663291988844182,
+      "total_frobenius_norm": 2.910123330922607,
+      "per_module_rho": {
+        "gate_proj": 0.007509018023745608,
+        "up_proj": 0.010607082980677486,
+        "down_proj": 0.025873774962109453
+      },
+      "pooled_rho_no_down_proj": 0.008734192217691394
+    }
+  },
+  "23": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.01852581145197394,
+      "simple_mean_rho": 0.019898607021183373,
+      "total_frobenius_norm": 1.0986681193806762,
+      "per_module_rho": {
+        "q_proj": 0.014921974711812116,
+        "k_proj": 0.0207037179643528,
+        "v_proj": 0.025346909447203386,
+        "o_proj": 0.018621825961365197
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.015364752456877238,
+      "simple_mean_rho": 0.01498336891778732,
+      "total_frobenius_norm": 2.927935687250179,
+      "per_module_rho": {
+        "gate_proj": 0.014463383407021356,
+        "up_proj": 0.017811425945518662,
+        "down_proj": 0.01267529740082194
+      },
+      "pooled_rho_no_down_proj": 0.015855088068245017
+    }
+  },
+  "24": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.016981707486670276,
+      "simple_mean_rho": 0.016610466574094682,
+      "total_frobenius_norm": 1.0859094160762248,
+      "per_module_rho": {
+        "q_proj": 0.016745160743601255,
+        "k_proj": 0.014383526341466593,
+        "v_proj": 0.017110724417308328,
+        "o_proj": 0.01820245479400255
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.01154110328643127,
+      "simple_mean_rho": 0.011198274084424253,
+      "total_frobenius_norm": 3.177378373081754,
+      "per_module_rho": {
+        "gate_proj": 0.013016110511773904,
+        "up_proj": 0.009367811351781443,
+        "down_proj": 0.01121090038971741
+      },
+      "pooled_rho_no_down_proj": 0.01159953103536671
+    }
+  },
+  "25": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.014076373468326206,
+      "simple_mean_rho": 0.013962099368952055,
+      "total_frobenius_norm": 1.0916706689575402,
+      "per_module_rho": {
+        "q_proj": 0.017028285545345717,
+        "k_proj": 0.01415786755539337,
+        "v_proj": 0.013215619542849725,
+        "o_proj": 0.011446624832219409
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.03206281863839265,
+      "simple_mean_rho": 0.027472100755713148,
+      "total_frobenius_norm": 3.2078816926216067,
+      "per_module_rho": {
+        "gate_proj": 0.040704337577014166,
+        "up_proj": 0.027593203548915597,
+        "down_proj": 0.014118761141209694
+      },
+      "pooled_rho_no_down_proj": 0.03549466591641948
+    }
+  },
+  "26": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.019994798687296,
+      "simple_mean_rho": 0.020540651245644616,
+      "total_frobenius_norm": 1.1346345782839673,
+      "per_module_rho": {
+        "q_proj": 0.012010213679564577,
+        "k_proj": 0.013635845994009433,
+        "v_proj": 0.033030509588600106,
+        "o_proj": 0.023486035720404343
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.028859223772586224,
+      "simple_mean_rho": 0.03557614646379011,
+      "total_frobenius_norm": 3.426150700422731,
+      "per_module_rho": {
+        "gate_proj": 0.020401345874164072,
+        "up_proj": 0.021250182955888056,
+        "down_proj": 0.0650769105613182
+      },
+      "pooled_rho_no_down_proj": 0.020741001784353508
+    }
+  },
+  "27": {
+    "attn": {
+      "pooled_rho_frobenius_weighted": 0.021235421419884003,
+      "simple_mean_rho": 0.022987583296869757,
+      "total_frobenius_norm": 1.096611939321249,
+      "per_module_rho": {
+        "q_proj": 0.0183706194536684,
+        "k_proj": 0.03430718292239334,
+        "v_proj": 0.01949481248651406,
+        "o_proj": 0.01977771832490323
+      }
+    },
+    "mlp": {
+      "pooled_rho_frobenius_weighted": 0.02375876183388269,
+      "simple_mean_rho": 0.024620365349274115,
+      "total_frobenius_norm": 2.6152131671903716,
+      "per_module_rho": {
+        "gate_proj": 0.027987599063964076,
+        "up_proj": 0.013618666141621796,
+        "down_proj": 0.032254830842236466
+      },
+      "pooled_rho_no_down_proj": 0.02238572474562699
+    }
+  }
+}

@@ -1,0 +1,1430 @@
+{
+  "0": {
+    "q_proj": {
+      "rho": 0.01614946171843348,
+      "frobenius_norm": 0.38494373207603216,
+      "output_norm": 0.006216634064912796,
+      "domain_vector_norm": 0.30180680751800537,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.020871132965391337,
+      "frobenius_norm": 0.15820652757918013,
+      "output_norm": 0.0033019494730979204,
+      "domain_vector_norm": 0.30180680751800537,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.010513672415721572,
+      "frobenius_norm": 0.1934457740030992,
+      "output_norm": 0.002033825498074293,
+      "domain_vector_norm": 0.30180680751800537,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.009764811936654969,
+      "frobenius_norm": 0.463600419282271,
+      "output_norm": 0.004526970908045769,
+      "domain_vector_norm": 0.30180680751800537,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.022946995472254938,
+      "frobenius_norm": 1.434382832158798,
+      "output_norm": 0.03291477635502815,
+      "domain_vector_norm": 0.3397933840751648,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.00797318928510559,
+      "frobenius_norm": 1.366615742610797,
+      "output_norm": 0.010896285995841026,
+      "domain_vector_norm": 0.3397933840751648,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.04424507797799077,
+      "frobenius_norm": 0.6218826753535648,
+      "output_norm": 0.027515247464179993,
+      "domain_vector_norm": 0.3397933840751648,
+      "transpose_used": true
+    }
+  },
+  "1": {
+    "q_proj": {
+      "rho": 0.016362676101209925,
+      "frobenius_norm": 0.35008822844725057,
+      "output_norm": 0.005728380288928747,
+      "domain_vector_norm": 0.3724689185619354,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.011518023943303674,
+      "frobenius_norm": 0.1254691469321617,
+      "output_norm": 0.0014451566385105252,
+      "domain_vector_norm": 0.3724689185619354,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.01834360031516455,
+      "frobenius_norm": 0.23888294670165336,
+      "output_norm": 0.004381973296403885,
+      "domain_vector_norm": 0.3724689185619354,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.00803430054610005,
+      "frobenius_norm": 0.4093448059944402,
+      "output_norm": 0.00328879919834435,
+      "domain_vector_norm": 0.3724689185619354,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.020086479997787548,
+      "frobenius_norm": 1.0911118434567744,
+      "output_norm": 0.021916596218943596,
+      "domain_vector_norm": 0.2653031647205353,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.044164726516680436,
+      "frobenius_norm": 0.9341333976377326,
+      "output_norm": 0.04125574603676796,
+      "domain_vector_norm": 0.2653031647205353,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.01647765226019919,
+      "frobenius_norm": 0.672567055489595,
+      "output_norm": 0.01108232606202364,
+      "domain_vector_norm": 0.2653031647205353,
+      "transpose_used": true
+    }
+  },
+  "2": {
+    "q_proj": {
+      "rho": 0.011957417038554581,
+      "frobenius_norm": 0.397253483799614,
+      "output_norm": 0.004750125575810671,
+      "domain_vector_norm": 0.5330981016159058,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.012284201217743826,
+      "frobenius_norm": 0.13258689062378234,
+      "output_norm": 0.0016287240432575345,
+      "domain_vector_norm": 0.5330981016159058,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.018526509621144497,
+      "frobenius_norm": 0.1883896839940638,
+      "output_norm": 0.0034902032930403948,
+      "domain_vector_norm": 0.5330981016159058,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.023467580605540987,
+      "frobenius_norm": 0.44842324516687593,
+      "output_norm": 0.010523408651351929,
+      "domain_vector_norm": 0.5330981016159058,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.005897958394061434,
+      "frobenius_norm": 1.9860990349047514,
+      "output_norm": 0.01171392947435379,
+      "domain_vector_norm": 0.3220870792865753,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.012266968753221802,
+      "frobenius_norm": 1.41627018186056,
+      "output_norm": 0.01737334206700325,
+      "domain_vector_norm": 0.3220870792865753,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.03668523300428044,
+      "frobenius_norm": 0.9475148925013479,
+      "output_norm": 0.03475980460643768,
+      "domain_vector_norm": 0.3220870792865753,
+      "transpose_used": true
+    }
+  },
+  "3": {
+    "q_proj": {
+      "rho": 0.01915462305493208,
+      "frobenius_norm": 0.3889279121260476,
+      "output_norm": 0.007449767552316189,
+      "domain_vector_norm": 0.43324029445648193,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.017391410716861053,
+      "frobenius_norm": 0.144254341858454,
+      "output_norm": 0.0025087865069508553,
+      "domain_vector_norm": 0.43324029445648193,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.00972535350323023,
+      "frobenius_norm": 0.17197468424461826,
+      "output_norm": 0.0016725145978853106,
+      "domain_vector_norm": 0.43324029445648193,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.013664204934264913,
+      "frobenius_norm": 0.4811534964422034,
+      "output_norm": 0.006574579980224371,
+      "domain_vector_norm": 0.43324029445648193,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.00817434826840687,
+      "frobenius_norm": 2.260476517361057,
+      "output_norm": 0.018477922305464745,
+      "domain_vector_norm": 0.4665350914001465,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.02111991798044454,
+      "frobenius_norm": 1.2195031211096756,
+      "output_norm": 0.025755805894732475,
+      "domain_vector_norm": 0.4665350914001465,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.02066101604590067,
+      "frobenius_norm": 0.9159415404205593,
+      "output_norm": 0.018924282863736153,
+      "domain_vector_norm": 0.4665350914001465,
+      "transpose_used": true
+    }
+  },
+  "4": {
+    "q_proj": {
+      "rho": 0.012025244121139728,
+      "frobenius_norm": 0.3920622705476863,
+      "output_norm": 0.004714644514024258,
+      "domain_vector_norm": 0.8342636227607727,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01162546911167884,
+      "frobenius_norm": 0.16470828569392082,
+      "output_norm": 0.0019148110877722502,
+      "domain_vector_norm": 0.8342636227607727,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.012640828600187164,
+      "frobenius_norm": 0.17175446423547933,
+      "output_norm": 0.0021711187437176704,
+      "domain_vector_norm": 0.8342636227607727,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.020039653837294513,
+      "frobenius_norm": 0.4060163926658104,
+      "output_norm": 0.008136427961289883,
+      "domain_vector_norm": 0.8342636227607727,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.025851847590184274,
+      "frobenius_norm": 2.189245345153077,
+      "output_norm": 0.05659603700041771,
+      "domain_vector_norm": 1.3661646842956543,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.014503820531814255,
+      "frobenius_norm": 1.2183654374060156,
+      "output_norm": 0.017670953646302223,
+      "domain_vector_norm": 1.3661646842956543,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.07364740784802691,
+      "frobenius_norm": 0.754808113774617,
+      "output_norm": 0.05558966100215912,
+      "domain_vector_norm": 1.3661646842956543,
+      "transpose_used": true
+    }
+  },
+  "5": {
+    "q_proj": {
+      "rho": 0.015457156175198982,
+      "frobenius_norm": 0.3966522237341503,
+      "output_norm": 0.00613111536949873,
+      "domain_vector_norm": 0.8943219780921936,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.013590407632397323,
+      "frobenius_norm": 0.15005993713508445,
+      "output_norm": 0.002039375714957714,
+      "domain_vector_norm": 0.8943219780921936,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.008167392049113329,
+      "frobenius_norm": 0.1787740356284606,
+      "output_norm": 0.001460117637179792,
+      "domain_vector_norm": 0.8943219780921936,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.013899673772363369,
+      "frobenius_norm": 0.43606953415973,
+      "output_norm": 0.006061224266886711,
+      "domain_vector_norm": 0.8943219780921936,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.032597886983444534,
+      "frobenius_norm": 1.8685411470500173,
+      "output_norm": 0.06091049313545227,
+      "domain_vector_norm": 1.1107033491134644,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.04801773586675567,
+      "frobenius_norm": 1.1314646627864524,
+      "output_norm": 0.05433037132024765,
+      "domain_vector_norm": 1.1107033491134644,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.04068470198091376,
+      "frobenius_norm": 0.6582795956163242,
+      "output_norm": 0.02678190916776657,
+      "domain_vector_norm": 1.1107033491134644,
+      "transpose_used": true
+    }
+  },
+  "6": {
+    "q_proj": {
+      "rho": 0.012329180086622758,
+      "frobenius_norm": 0.39236358929679493,
+      "output_norm": 0.004837521351873875,
+      "domain_vector_norm": 1.1040199995040894,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01652936238592696,
+      "frobenius_norm": 0.1418876782814837,
+      "output_norm": 0.0023453128524124622,
+      "domain_vector_norm": 1.1040199995040894,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.013446424733782329,
+      "frobenius_norm": 0.1539687458217954,
+      "output_norm": 0.002070329152047634,
+      "domain_vector_norm": 1.1040199995040894,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.011459778308361144,
+      "frobenius_norm": 0.39016364509561874,
+      "output_norm": 0.004471188876777887,
+      "domain_vector_norm": 1.1040199995040894,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.03547891908761447,
+      "frobenius_norm": 1.4870038495350657,
+      "output_norm": 0.05275728926062584,
+      "domain_vector_norm": 1.2558743953704834,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.012608112095276888,
+      "frobenius_norm": 1.0308546406592747,
+      "output_norm": 0.012997130863368511,
+      "domain_vector_norm": 1.2558743953704834,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.02706732824435479,
+      "frobenius_norm": 0.6672344521790313,
+      "output_norm": 0.01806025393307209,
+      "domain_vector_norm": 1.2558743953704834,
+      "transpose_used": true
+    }
+  },
+  "7": {
+    "q_proj": {
+      "rho": 0.018982717718035405,
+      "frobenius_norm": 0.39746652360219553,
+      "output_norm": 0.007544994819909334,
+      "domain_vector_norm": 1.5859307050704956,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01748906718050297,
+      "frobenius_norm": 0.15076069074019066,
+      "output_norm": 0.0026366638485342264,
+      "domain_vector_norm": 1.5859307050704956,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.015505807648093705,
+      "frobenius_norm": 0.17380479591782233,
+      "output_norm": 0.002694983733817935,
+      "domain_vector_norm": 1.5859307050704956,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.017997841817125944,
+      "frobenius_norm": 0.41319598091687526,
+      "output_norm": 0.0074366359040141106,
+      "domain_vector_norm": 1.5859307050704956,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.049384277189262846,
+      "frobenius_norm": 1.5201161492040411,
+      "output_norm": 0.0750698372721672,
+      "domain_vector_norm": 2.165046215057373,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.027649952912606027,
+      "frobenius_norm": 1.055007377436005,
+      "output_norm": 0.02917090430855751,
+      "domain_vector_norm": 2.165046215057373,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.05074784453093374,
+      "frobenius_norm": 0.7290525119978648,
+      "output_norm": 0.03699784353375435,
+      "domain_vector_norm": 2.165046215057373,
+      "transpose_used": true
+    }
+  },
+  "8": {
+    "q_proj": {
+      "rho": 0.023100482407757205,
+      "frobenius_norm": 0.40171752267751676,
+      "output_norm": 0.009279868565499783,
+      "domain_vector_norm": 1.5652875900268555,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.03351670626922019,
+      "frobenius_norm": 0.1560469559817965,
+      "output_norm": 0.005230179987847805,
+      "domain_vector_norm": 1.5652875900268555,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.012781606279149085,
+      "frobenius_norm": 0.1834260499295324,
+      "output_norm": 0.002344479551538825,
+      "domain_vector_norm": 1.5652875900268555,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.007952747502051534,
+      "frobenius_norm": 0.48170190438342947,
+      "output_norm": 0.0038308536168187857,
+      "domain_vector_norm": 1.5652875900268555,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.021869028210627403,
+      "frobenius_norm": 1.5258363275309335,
+      "output_norm": 0.0333685576915741,
+      "domain_vector_norm": 2.4018402099609375,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.013221112153172064,
+      "frobenius_norm": 1.01151600577362,
+      "output_norm": 0.013373366557061672,
+      "domain_vector_norm": 2.4018402099609375,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.014373702649995814,
+      "frobenius_norm": 0.7227020249174366,
+      "output_norm": 0.0103879040107131,
+      "domain_vector_norm": 2.4018402099609375,
+      "transpose_used": true
+    }
+  },
+  "9": {
+    "q_proj": {
+      "rho": 0.021401452064109185,
+      "frobenius_norm": 0.4556126054927724,
+      "output_norm": 0.009750771336257458,
+      "domain_vector_norm": 2.4178712368011475,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.02897050157782922,
+      "frobenius_norm": 0.1975571018074033,
+      "output_norm": 0.0057233283296227455,
+      "domain_vector_norm": 2.4178712368011475,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.024159226926999594,
+      "frobenius_norm": 0.1751418937036821,
+      "output_norm": 0.004231292754411697,
+      "domain_vector_norm": 2.4178712368011475,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.012873765289771534,
+      "frobenius_norm": 0.46264191074173994,
+      "output_norm": 0.005955943372100592,
+      "domain_vector_norm": 2.4178712368011475,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.09826646176337737,
+      "frobenius_norm": 2.4472926108660285,
+      "output_norm": 0.24048678576946259,
+      "domain_vector_norm": 3.480151891708374,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.0388932067264706,
+      "frobenius_norm": 1.1516490846792498,
+      "output_norm": 0.0447913259267807,
+      "domain_vector_norm": 3.480151891708374,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.038328999706462655,
+      "frobenius_norm": 0.6442260250667985,
+      "output_norm": 0.024692539125680923,
+      "domain_vector_norm": 3.480151891708374,
+      "transpose_used": true
+    }
+  },
+  "10": {
+    "q_proj": {
+      "rho": 0.01720016921963968,
+      "frobenius_norm": 0.4114660692896115,
+      "output_norm": 0.007077286019921303,
+      "domain_vector_norm": 1.6986732482910156,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.011208319725558009,
+      "frobenius_norm": 0.15472829237512392,
+      "output_norm": 0.0017342441715300083,
+      "domain_vector_norm": 1.6986732482910156,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.015364433047728913,
+      "frobenius_norm": 0.16578459652714778,
+      "output_norm": 0.0025471863336861134,
+      "domain_vector_norm": 1.6986732482910156,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.013872072427827533,
+      "frobenius_norm": 0.41455689190965245,
+      "output_norm": 0.005750763230025768,
+      "domain_vector_norm": 1.6986732482910156,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.044028522076651894,
+      "frobenius_norm": 1.809933522515817,
+      "output_norm": 0.07968869805335999,
+      "domain_vector_norm": 2.934112310409546,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.01990051458047691,
+      "frobenius_norm": 1.1412449027508555,
+      "output_norm": 0.022711360827088356,
+      "domain_vector_norm": 2.934112310409546,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.01340196239055802,
+      "frobenius_norm": 0.7027563612224922,
+      "output_norm": 0.009418314322829247,
+      "domain_vector_norm": 2.934112310409546,
+      "transpose_used": true
+    }
+  },
+  "11": {
+    "q_proj": {
+      "rho": 0.01780579572175753,
+      "frobenius_norm": 0.42051103646494936,
+      "output_norm": 0.007487533614039421,
+      "domain_vector_norm": 1.458926796913147,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01793136787622956,
+      "frobenius_norm": 0.15198632640023152,
+      "output_norm": 0.0027253227308392525,
+      "domain_vector_norm": 1.458926796913147,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.018715495765275685,
+      "frobenius_norm": 0.16522185230823883,
+      "output_norm": 0.0030922088772058487,
+      "domain_vector_norm": 1.458926796913147,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.010986247051459192,
+      "frobenius_norm": 0.4718976830089522,
+      "output_norm": 0.005184384528547525,
+      "domain_vector_norm": 1.458926796913147,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.04130184149023615,
+      "frobenius_norm": 1.4394785491892714,
+      "output_norm": 0.05945311486721039,
+      "domain_vector_norm": 2.641106367111206,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.028818392396686283,
+      "frobenius_norm": 1.1519772738890663,
+      "output_norm": 0.03319813311100006,
+      "domain_vector_norm": 2.641106367111206,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.009980857646118382,
+      "frobenius_norm": 0.6351306980525375,
+      "output_norm": 0.006339149083942175,
+      "domain_vector_norm": 2.641106367111206,
+      "transpose_used": true
+    }
+  },
+  "12": {
+    "q_proj": {
+      "rho": 0.023749472634590568,
+      "frobenius_norm": 0.43935421996268786,
+      "output_norm": 0.01043443102389574,
+      "domain_vector_norm": 1.5482419729232788,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.014676293445794639,
+      "frobenius_norm": 0.1612741486261544,
+      "output_norm": 0.0023669067304581404,
+      "domain_vector_norm": 1.5482419729232788,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.012604747794393481,
+      "frobenius_norm": 0.16377204774800908,
+      "output_norm": 0.002064305357635021,
+      "domain_vector_norm": 1.5482419729232788,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.009346445605896184,
+      "frobenius_norm": 0.4558448717283037,
+      "output_norm": 0.004260529298335314,
+      "domain_vector_norm": 1.5482419729232788,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.020572375181124956,
+      "frobenius_norm": 1.5986305008430521,
+      "output_norm": 0.03288762643933296,
+      "domain_vector_norm": 2.5743906497955322,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.01880609666235659,
+      "frobenius_norm": 1.1100581040510928,
+      "output_norm": 0.02087586000561714,
+      "domain_vector_norm": 2.5743906497955322,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.029887349012646298,
+      "frobenius_norm": 0.7350214689713392,
+      "output_norm": 0.021967843174934387,
+      "domain_vector_norm": 2.5743906497955322,
+      "transpose_used": true
+    }
+  },
+  "13": {
+    "q_proj": {
+      "rho": 0.01673009923028629,
+      "frobenius_norm": 0.4239634108961818,
+      "output_norm": 0.0070929499343037605,
+      "domain_vector_norm": 1.9165287017822266,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01468399320908407,
+      "frobenius_norm": 0.1581101085224736,
+      "output_norm": 0.0023216877598315477,
+      "domain_vector_norm": 1.9165287017822266,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.009432327557302814,
+      "frobenius_norm": 0.17850112063125584,
+      "output_norm": 0.0016836810391396284,
+      "domain_vector_norm": 1.9165287017822266,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.013475098236394747,
+      "frobenius_norm": 0.435309991439087,
+      "output_norm": 0.005865844897925854,
+      "domain_vector_norm": 1.9165287017822266,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.015937008779966774,
+      "frobenius_norm": 1.6754246045449275,
+      "output_norm": 0.02670125663280487,
+      "domain_vector_norm": 2.631575584411621,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.015457429828889067,
+      "frobenius_norm": 1.0409580808842123,
+      "output_norm": 0.01609053649008274,
+      "domain_vector_norm": 2.631575584411621,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.03127558783905275,
+      "frobenius_norm": 0.5289435808764598,
+      "output_norm": 0.01654302142560482,
+      "domain_vector_norm": 2.631575584411621,
+      "transpose_used": true
+    }
+  },
+  "14": {
+    "q_proj": {
+      "rho": 0.016611300051304578,
+      "frobenius_norm": 0.43195778427329534,
+      "output_norm": 0.007175380364060402,
+      "domain_vector_norm": 1.6465297937393188,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.016840461338820875,
+      "frobenius_norm": 0.16534123043057677,
+      "output_norm": 0.0027844225987792015,
+      "domain_vector_norm": 1.6465297937393188,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.01907974883582418,
+      "frobenius_norm": 0.15310629710982998,
+      "output_norm": 0.0029212296940386295,
+      "domain_vector_norm": 1.6465297937393188,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.014862636551783524,
+      "frobenius_norm": 0.41054048251938163,
+      "output_norm": 0.006101713981479406,
+      "domain_vector_norm": 1.6465297937393188,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.020759858104424638,
+      "frobenius_norm": 1.5698421400124014,
+      "output_norm": 0.03258970007300377,
+      "domain_vector_norm": 2.934870719909668,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.014760706537947869,
+      "frobenius_norm": 1.0335234233894466,
+      "output_norm": 0.015255535952746868,
+      "domain_vector_norm": 2.934870719909668,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.011477271636666224,
+      "frobenius_norm": 0.5560704841688001,
+      "output_norm": 0.006382171995937824,
+      "domain_vector_norm": 2.934870719909668,
+      "transpose_used": true
+    }
+  },
+  "15": {
+    "q_proj": {
+      "rho": 0.016322924094000216,
+      "frobenius_norm": 0.42183368975102925,
+      "output_norm": 0.006885559298098087,
+      "domain_vector_norm": 1.7201032638549805,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01175798520751002,
+      "frobenius_norm": 0.16934454608933555,
+      "output_norm": 0.0019911506678909063,
+      "domain_vector_norm": 1.7201032638549805,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.014498451208607427,
+      "frobenius_norm": 0.15335069343219193,
+      "output_norm": 0.00222334754653275,
+      "domain_vector_norm": 1.7201032638549805,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.0341678395380824,
+      "frobenius_norm": 0.4537823775591166,
+      "output_norm": 0.015504763461649418,
+      "domain_vector_norm": 1.7201032638549805,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.08291171089473967,
+      "frobenius_norm": 1.7173676914298635,
+      "output_norm": 0.14238989353179932,
+      "domain_vector_norm": 2.9159443378448486,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.03518843912707838,
+      "frobenius_norm": 1.0585884572702673,
+      "output_norm": 0.03725007548928261,
+      "domain_vector_norm": 2.9159443378448486,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.012438591008791163,
+      "frobenius_norm": 0.5566031460107352,
+      "output_norm": 0.006923358887434006,
+      "domain_vector_norm": 2.9159443378448486,
+      "transpose_used": true
+    }
+  },
+  "16": {
+    "q_proj": {
+      "rho": 0.012274189038743902,
+      "frobenius_norm": 0.43688739734463017,
+      "output_norm": 0.005362438503652811,
+      "domain_vector_norm": 1.741234540939331,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.023279931561293928,
+      "frobenius_norm": 0.16577913606538106,
+      "output_norm": 0.0038593269418925047,
+      "domain_vector_norm": 1.741234540939331,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.011752674117764655,
+      "frobenius_norm": 0.15779398771802905,
+      "output_norm": 0.0018545013153925538,
+      "domain_vector_norm": 1.741234540939331,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.022791624714170438,
+      "frobenius_norm": 0.4522418261454132,
+      "output_norm": 0.01030732598155737,
+      "domain_vector_norm": 1.741234540939331,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.020988651146588853,
+      "frobenius_norm": 1.3939249553265605,
+      "output_norm": 0.029256604611873627,
+      "domain_vector_norm": 2.555109739303589,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.014173114239203626,
+      "frobenius_norm": 1.0296665519470598,
+      "output_norm": 0.014593581669032574,
+      "domain_vector_norm": 2.555109739303589,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.020130604380519976,
+      "frobenius_norm": 0.5522206483572687,
+      "output_norm": 0.011116535402834415,
+      "domain_vector_norm": 2.555109739303589,
+      "transpose_used": true
+    }
+  },
+  "17": {
+    "q_proj": {
+      "rho": 0.017589378462009194,
+      "frobenius_norm": 0.4207949057430232,
+      "output_norm": 0.007401520851999521,
+      "domain_vector_norm": 1.5970009565353394,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.012507355069033284,
+      "frobenius_norm": 0.155308569526445,
+      "output_norm": 0.0019424994243308902,
+      "domain_vector_norm": 1.5970009565353394,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.0072261850420567,
+      "frobenius_norm": 0.16217650322025595,
+      "output_norm": 0.0011719174217432737,
+      "domain_vector_norm": 1.5970009565353394,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.01791937549729673,
+      "frobenius_norm": 0.46094163795812115,
+      "output_norm": 0.008259786292910576,
+      "domain_vector_norm": 1.5970009565353394,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.010246764591728932,
+      "frobenius_norm": 1.6420184076511029,
+      "output_norm": 0.016825376078486443,
+      "domain_vector_norm": 2.8389346599578857,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.015395688039283817,
+      "frobenius_norm": 1.0274422601965132,
+      "output_norm": 0.01581818051636219,
+      "domain_vector_norm": 2.8389346599578857,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.022474132883958334,
+      "frobenius_norm": 0.6324053973666128,
+      "output_norm": 0.01421276293694973,
+      "domain_vector_norm": 2.8389346599578857,
+      "transpose_used": true
+    }
+  },
+  "18": {
+    "q_proj": {
+      "rho": 0.01583557437156252,
+      "frobenius_norm": 0.4413256445011573,
+      "output_norm": 0.006988645065575838,
+      "domain_vector_norm": 2.2197422981262207,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.011153364383292794,
+      "frobenius_norm": 0.1712204161641414,
+      "output_norm": 0.0019096836913377047,
+      "domain_vector_norm": 2.2197422981262207,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.015823239589275354,
+      "frobenius_norm": 0.1616551804108026,
+      "output_norm": 0.0025579086504876614,
+      "domain_vector_norm": 2.2197422981262207,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.01358244231147009,
+      "frobenius_norm": 0.42340682224756154,
+      "output_norm": 0.005750898737460375,
+      "domain_vector_norm": 2.2197422981262207,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.02845570815452423,
+      "frobenius_norm": 1.6392259718085276,
+      "output_norm": 0.04664533585309982,
+      "domain_vector_norm": 4.006176948547363,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.027783676601548443,
+      "frobenius_norm": 1.1216956991507212,
+      "output_norm": 0.031164830550551414,
+      "domain_vector_norm": 4.006176948547363,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.022896252896555544,
+      "frobenius_norm": 0.6518870371057394,
+      "output_norm": 0.014925770461559296,
+      "domain_vector_norm": 4.006176948547363,
+      "transpose_used": true
+    }
+  },
+  "19": {
+    "q_proj": {
+      "rho": 0.01985415039793393,
+      "frobenius_norm": 0.44245302093716943,
+      "output_norm": 0.008784528821706772,
+      "domain_vector_norm": 5.055783271789551,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.011170152546093956,
+      "frobenius_norm": 0.1680007837488705,
+      "output_norm": 0.0018765943823382258,
+      "domain_vector_norm": 5.055783271789551,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.032486777746731046,
+      "frobenius_norm": 0.18048033780303605,
+      "output_norm": 0.005863224621862173,
+      "domain_vector_norm": 5.055783271789551,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.01731464380713169,
+      "frobenius_norm": 0.39660928196243384,
+      "output_norm": 0.006867148447781801,
+      "domain_vector_norm": 5.055783271789551,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.028125400782798793,
+      "frobenius_norm": 1.9827311157166105,
+      "output_norm": 0.05576510727405548,
+      "domain_vector_norm": 8.266347885131836,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.02444293436631707,
+      "frobenius_norm": 1.113650504997364,
+      "output_norm": 0.027220886200666428,
+      "domain_vector_norm": 8.266347885131836,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.025452442634483263,
+      "frobenius_norm": 0.5519251206860395,
+      "output_norm": 0.014047842472791672,
+      "domain_vector_norm": 8.266347885131836,
+      "transpose_used": true
+    }
+  },
+  "20": {
+    "q_proj": {
+      "rho": 0.012050219813984147,
+      "frobenius_norm": 0.4181244818508889,
+      "output_norm": 0.005038491915911436,
+      "domain_vector_norm": 2.52750563621521,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.016487045217823022,
+      "frobenius_norm": 0.16694270064387715,
+      "output_norm": 0.002752391854301095,
+      "domain_vector_norm": 2.52750563621521,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.01616593251140204,
+      "frobenius_norm": 0.15460805659144022,
+      "output_norm": 0.00249938340857625,
+      "domain_vector_norm": 2.52750563621521,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.01656281107893609,
+      "frobenius_norm": 0.4315199359618098,
+      "output_norm": 0.007147183176130056,
+      "domain_vector_norm": 2.52750563621521,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.005978938048234304,
+      "frobenius_norm": 1.6485692554628613,
+      "output_norm": 0.0098566934466362,
+      "domain_vector_norm": 9.442723274230957,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.015273220552833736,
+      "frobenius_norm": 1.106016205474061,
+      "output_norm": 0.016892429441213608,
+      "domain_vector_norm": 9.442723274230957,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.013136784202566061,
+      "frobenius_norm": 0.5076691058249101,
+      "output_norm": 0.006669139489531517,
+      "domain_vector_norm": 9.442723274230957,
+      "transpose_used": true
+    }
+  },
+  "21": {
+    "q_proj": {
+      "rho": 0.0163455601681353,
+      "frobenius_norm": 0.43009107883773867,
+      "output_norm": 0.007030079606920481,
+      "domain_vector_norm": 4.639856815338135,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.02493709346176135,
+      "frobenius_norm": 0.1607137722147201,
+      "output_norm": 0.0040077343583106995,
+      "domain_vector_norm": 4.639856815338135,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.01829902629332829,
+      "frobenius_norm": 0.1606467168595533,
+      "output_norm": 0.002939678495749831,
+      "domain_vector_norm": 4.639856815338135,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.014507772325876035,
+      "frobenius_norm": 0.4292553202099991,
+      "output_norm": 0.006227538455277681,
+      "domain_vector_norm": 4.639856815338135,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.009942062607011463,
+      "frobenius_norm": 1.735960296014217,
+      "output_norm": 0.0172590259462595,
+      "domain_vector_norm": 10.078119277954102,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.010083640306502484,
+      "frobenius_norm": 1.0802713121370173,
+      "output_norm": 0.010893067345023155,
+      "domain_vector_norm": 10.078119277954102,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.0309134862244519,
+      "frobenius_norm": 0.5027685407219742,
+      "output_norm": 0.015542328357696533,
+      "domain_vector_norm": 10.078119277954102,
+      "transpose_used": true
+    }
+  },
+  "22": {
+    "q_proj": {
+      "rho": 0.02140251643749684,
+      "frobenius_norm": 0.4305279575068884,
+      "output_norm": 0.00921438168734312,
+      "domain_vector_norm": 6.688789367675781,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.01530626202123259,
+      "frobenius_norm": 0.16871972540976013,
+      "output_norm": 0.0025824683252722025,
+      "domain_vector_norm": 6.688789367675781,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.020919397522313053,
+      "frobenius_norm": 0.17876317870969707,
+      "output_norm": 0.0037396179977804422,
+      "domain_vector_norm": 6.688789367675781,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.01758823689733751,
+      "frobenius_norm": 0.42190412138281924,
+      "output_norm": 0.007420549634844065,
+      "domain_vector_norm": 6.688789367675781,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.007270880069505679,
+      "frobenius_norm": 1.7343892277314439,
+      "output_norm": 0.012610536068677902,
+      "domain_vector_norm": 13.760004043579102,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.009542837839523725,
+      "frobenius_norm": 1.0769293416150196,
+      "output_norm": 0.01027696207165718,
+      "domain_vector_norm": 13.760004043579102,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.023241950240446705,
+      "frobenius_norm": 0.4716645232422633,
+      "output_norm": 0.010962403379380703,
+      "domain_vector_norm": 13.760004043579102,
+      "transpose_used": true
+    }
+  },
+  "23": {
+    "q_proj": {
+      "rho": 0.014580380257777087,
+      "frobenius_norm": 0.42813979492240684,
+      "output_norm": 0.006242441013455391,
+      "domain_vector_norm": 5.494134902954102,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.020444512403682787,
+      "frobenius_norm": 0.16521908461614598,
+      "output_norm": 0.0033778236247599125,
+      "domain_vector_norm": 5.494134902954102,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.02649643835223703,
+      "frobenius_norm": 0.1645679974251656,
+      "output_norm": 0.004360465798527002,
+      "domain_vector_norm": 5.494134902954102,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.0185138843259569,
+      "frobenius_norm": 0.41480553732990705,
+      "output_norm": 0.007679661735892296,
+      "domain_vector_norm": 5.494134902954102,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.01879877775804396,
+      "frobenius_norm": 1.702767710874641,
+      "output_norm": 0.032009951770305634,
+      "domain_vector_norm": 16.097637176513672,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.021489297531511995,
+      "frobenius_norm": 1.1456397095280637,
+      "output_norm": 0.02461899258196354,
+      "domain_vector_norm": 16.097637176513672,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.01582939666685164,
+      "frobenius_norm": 0.48510094049402275,
+      "output_norm": 0.007678855210542679,
+      "domain_vector_norm": 16.097637176513672,
+      "transpose_used": true
+    }
+  },
+  "24": {
+    "q_proj": {
+      "rho": 0.017967832395004872,
+      "frobenius_norm": 0.41114817973432954,
+      "output_norm": 0.007387441582977772,
+      "domain_vector_norm": 7.3844523429870605,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.013919347747732532,
+      "frobenius_norm": 0.164078893296612,
+      "output_norm": 0.0022838711738586426,
+      "domain_vector_norm": 7.3844523429870605,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.017601131284131103,
+      "frobenius_norm": 0.17746839428298586,
+      "output_norm": 0.003123644506558776,
+      "domain_vector_norm": 7.3844523429870605,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.018545428498166837,
+      "frobenius_norm": 0.40675870516675516,
+      "output_norm": 0.007543514482676983,
+      "domain_vector_norm": 7.3844523429870605,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.014817074710566076,
+      "frobenius_norm": 1.9311496276450557,
+      "output_norm": 0.028613988310098648,
+      "domain_vector_norm": 16.73154067993164,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.009426003661528393,
+      "frobenius_norm": 1.1598490812520084,
+      "output_norm": 0.010932741686701775,
+      "domain_vector_norm": 16.73154067993164,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.011403405173638888,
+      "frobenius_norm": 0.5134966301143503,
+      "output_norm": 0.005855610128492117,
+      "domain_vector_norm": 16.73154067993164,
+      "transpose_used": true
+    }
+  },
+  "25": {
+    "q_proj": {
+      "rho": 0.017438890712136005,
+      "frobenius_norm": 0.42347730892873203,
+      "output_norm": 0.007384974509477615,
+      "domain_vector_norm": 6.560243129730225,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.014471855235345119,
+      "frobenius_norm": 0.16189868287966802,
+      "output_norm": 0.0023429743014276028,
+      "domain_vector_norm": 6.560243129730225,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.013351852290096543,
+      "frobenius_norm": 0.15716338221002693,
+      "output_norm": 0.0020984222646802664,
+      "domain_vector_norm": 6.560243129730225,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.011723290933088963,
+      "frobenius_norm": 0.42316009683017614,
+      "output_norm": 0.004960828926414251,
+      "domain_vector_norm": 6.560243129730225,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.04266728074349509,
+      "frobenius_norm": 1.899469605249123,
+      "output_norm": 0.08104520291090012,
+      "domain_vector_norm": 17.903888702392578,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.029948139353177486,
+      "frobenius_norm": 1.1950079336661172,
+      "output_norm": 0.035788264125585556,
+      "domain_vector_norm": 17.903888702392578,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.013794167209772107,
+      "frobenius_norm": 0.5515131044828173,
+      "output_norm": 0.007607663981616497,
+      "domain_vector_norm": 17.903888702392578,
+      "transpose_used": true
+    }
+  },
+  "26": {
+    "q_proj": {
+      "rho": 0.013044965576560139,
+      "frobenius_norm": 0.4172347924219288,
+      "output_norm": 0.005442813504487276,
+      "domain_vector_norm": 6.55702018737793,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.013913490404786686,
+      "frobenius_norm": 0.16069276427648813,
+      "output_norm": 0.002235797233879566,
+      "domain_vector_norm": 6.55702018737793,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.03384795101573666,
+      "frobenius_norm": 0.21079214704155563,
+      "output_norm": 0.007134882267564535,
+      "domain_vector_norm": 6.55702018737793,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.023039512626818703,
+      "frobenius_norm": 0.41628614772747324,
+      "output_norm": 0.009591029956936836,
+      "domain_vector_norm": 6.55702018737793,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.023025187067860095,
+      "frobenius_norm": 1.933026348054824,
+      "output_norm": 0.04450829327106476,
+      "domain_vector_norm": 23.05397605895996,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.023314488300259662,
+      "frobenius_norm": 1.2552500146722632,
+      "output_norm": 0.02926551178097725,
+      "domain_vector_norm": 23.05397605895996,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.0651862481741224,
+      "frobenius_norm": 0.6571772019780726,
+      "output_norm": 0.042838916182518005,
+      "domain_vector_norm": 23.05397605895996,
+      "transpose_used": true
+    }
+  },
+  "27": {
+    "q_proj": {
+      "rho": 0.021717833246543177,
+      "frobenius_norm": 0.4422149339664506,
+      "output_norm": 0.009603950195014477,
+      "domain_vector_norm": 8.693523406982422,
+      "transpose_used": false
+    },
+    "k_proj": {
+      "rho": 0.03589059760998133,
+      "frobenius_norm": 0.16303525354106588,
+      "output_norm": 0.005851432681083679,
+      "domain_vector_norm": 8.693523406982422,
+      "transpose_used": false
+    },
+    "v_proj": {
+      "rho": 0.02054717074852497,
+      "frobenius_norm": 0.14547684359135366,
+      "output_norm": 0.0029891375452280045,
+      "domain_vector_norm": 8.693523406982422,
+      "transpose_used": false
+    },
+    "o_proj": {
+      "rho": 0.018640834584916496,
+      "frobenius_norm": 0.41286666497442476,
+      "output_norm": 0.007696179207414389,
+      "domain_vector_norm": 8.693523406982422,
+      "transpose_used": false
+    },
+    "gate_proj": {
+      "rho": 0.0328477051763079,
+      "frobenius_norm": 1.5574648791619663,
+      "output_norm": 0.051159147173166275,
+      "domain_vector_norm": 49.14829635620117,
+      "transpose_used": false
+    },
+    "up_proj": {
+      "rho": 0.01621856972005656,
+      "frobenius_norm": 0.9418510241073643,
+      "output_norm": 0.01527547650039196,
+      "domain_vector_norm": 49.14829635620117,
+      "transpose_used": false
+    },
+    "down_proj": {
+      "rho": 0.033351114052968416,
+      "frobenius_norm": 0.38524123873269567,
+      "output_norm": 0.012848224490880966,
+      "domain_vector_norm": 49.14829635620117,
+      "transpose_used": true
+    }
+  }
+}

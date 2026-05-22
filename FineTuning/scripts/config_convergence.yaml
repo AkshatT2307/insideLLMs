@@ -1,0 +1,40 @@
+model:
+  name: "Qwen/Qwen2.5-7B"
+  dtype: "bfloat16"
+data:
+  source_dir: "../../arxiv_data"
+  output_dir: "../datasets"
+  domains: ["cs"]
+  n_train: 3000
+  n_val: 1000
+  n_test: 1000
+  max_length: 256
+  seed: 42
+  text_column: "text"
+training:
+  num_epochs: 1
+  train_batch_size: 4
+  eval_batch_size: 32
+  gradient_accumulation_steps: 8
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  lr_scheduler: "cosine"
+  warmup_ratio: 0.05
+  max_grad_norm: 1.0
+  bf16: true
+  dataloader_num_workers: 4
+  logging_steps: 5          # log more frequently to see convergence
+  save_strategy: "epoch"
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  bias: "none"
+  task_type: "CAUSAL_LM"
+paths:
+  adapter_dir: "../adapters_convergence"
+  log_dir: "../logs_convergence"
+gpu:
+  multi_gpu: true
+  device: "cuda:0"

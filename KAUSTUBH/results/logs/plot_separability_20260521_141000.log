@@ -1,0 +1,9 @@
+[plot_separability] started at 20260521_141000
+============================================================
+Generating separability plots...
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/separability/fdr_raw.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/separability/fdr_norm.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/separability/fdr_raw_vs_norm.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/separability/fdr_norm_attn_minus_mlp.png
+
+Done.

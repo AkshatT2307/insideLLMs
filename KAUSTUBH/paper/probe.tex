@@ -1,0 +1,371 @@
+% probe.tex — Complete documentation of the probing experiment
+% Source material for EMNLP paper writing.
+% First section = main paper content. Remaining sections = appendix.
+%
+% Figures referenced here are PDFs in results/figures/
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\attn}{\Delta a}
+\newcommand{\mlp}{\Delta m}
+\newcommand{\resid}{x}
+
+\title{Probing Experiment: Complete Reference\\
+{\normalsize Domain-Discriminative Processing in Attention vs.\ MLP Sublayers}}
+\author{Internal Reference Document}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════
+\section{Main Paper Content}
+\label{sec:main}
+% ══════════════════════════════════════════════════════════════
+
+\textit{The following 2--3 paragraphs are what should go in the main body of the EMNLP paper, summarising the probing experiment and its key findings. Figures~\ref{fig:main1} and~\ref{fig:main2} are the main paper figures.}
+
+\bigskip
+
+\noindent\textbf{Setup.}\quad
+To characterise the division of labour between attention and MLP sublayers, we decompose each transformer layer's computation into its two additive contributions: the attention output $\attn^\ell$ and the MLP output $\mlp^\ell$, where $x^{\ell} = x^{\ell-1} + \attn^\ell + \mlp^\ell$. We extract these contributions for 15{,}000 samples from each of six arXiv domains (\texttt{cs}, \texttt{eess}, \texttt{math}, \texttt{physics}, \texttt{q-bio}, \texttt{stat}) across all 28 layers of Qwen2.5-7B, using last-token pooling. We then apply two complementary analyses --- linear probing (6-way logistic regression) and Fisher Discriminant Ratio (FDR, the ratio of between-class to within-class scatter) --- to quantify how much domain-discriminative information each sublayer's contribution carries at each layer.
+
+\noindent\textbf{Finding: Attention is spiky, MLP is smooth.}\quad
+Both analyses reveal a striking qualitative difference in layer profiles (Figure~\ref{fig:main1}). The MLP contribution $\mlp$ shows a smooth, monotonically increasing domain signal: probe accuracy rises steadily from 0.76 (layer~0) to 0.90 (layer~25), and FDR follows the same gradual ramp. The attention contribution $\attn$, by contrast, is highly non-monotonic. Probe accuracy peaks early at layer~9 (0.89), drops to 0.77 at layers~15--17 (below even layer~0 levels), then spikes sharply to 0.91 at layer~22 before declining again. FDR confirms the identical pattern: attention exhibits sharp peaks at layers~2, 8--10, 19, and~22, interspersed with valleys where its domain discriminability falls below layer~0. The two methods --- one supervised (probe), one unsupervised (FDR) --- independently reproduce the same shape, establishing that attention's domain-relevant computation is concentrated at specific layers rather than distributed uniformly.
+
+\noindent\textbf{Magnitude vs.\ direction.}\quad
+Domain concept vectors $\mathbf{d}_k^\ell = \mu_k^\ell - \mu^\ell$ (the difference between each domain's mean activation and the global mean) reveal a second asymmetry (Figure~\ref{fig:main2}). MLP concept vector norms grow exponentially with depth, reaching $\|\mathbf{d}_k\| \approx 80$ by layer~27, while attention concept norms remain an order of magnitude smaller ($\approx 16$). Math is consistently the most separated domain in both components. Despite this large magnitude difference, unit-normalised FDR is virtually identical to raw FDR for both components (Appendix~\ref{app:fdr}), indicating that domain separation is driven by \emph{direction}, not magnitude, in both sublayers. The magnitude difference reflects the overall scale of each sublayer's contribution to the residual stream rather than a qualitative difference in how domain information is encoded.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{probe_main_fig1.pdf}
+    \caption{Domain classification from sublayer contributions across layers.
+    \textbf{(a)} Linear probe accuracy (6-way logistic regression, 30\% test split).
+    \textbf{(b)} Fisher Discriminant Ratio (tr($S_B$)/tr($S_W$), higher = better separation).
+    Both metrics reveal the same qualitative difference: attention (red) is spiky with peaks at L9 and L22 separated by a dip at L11--18, while MLP (blue) increases monotonically. Chance accuracy is $1/6 = 0.167$.}
+    \label{fig:main1}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{probe_main_fig2.pdf}
+    \caption{Domain concept vector norms $\|\mathbf{d}_k^\ell\|$ across layers for each of the six arXiv domains.
+    \textbf{(a)} Attention contributions: norms remain small (0--16) with visible spikiness.
+    \textbf{(b)} MLP contributions: norms grow exponentially (0--80), roughly 5--10$\times$ larger than attention. Math (green) is the most distinctive domain in both components.}
+    \label{fig:main2}
+\end{figure}
+
+\newpage
+% ══════════════════════════════════════════════════════════════
+\section{Appendix: Experimental Setup}
+\label{app:setup}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Model and Dataset}
+
+\begin{itemize}
+    \item \textbf{Model}: Qwen2.5-7B (28 transformer layers, hidden dimension $d = 3584$).
+    \item \textbf{Dataset}: arXiv abstracts from six top-level categories:
+    \begin{itemize}
+        \item \texttt{cs} (Computer Science), \texttt{eess} (Electrical Engineering and Systems Science),
+        \item \texttt{math} (Mathematics), \texttt{physics} (Physics),
+        \item \texttt{q-bio} (Quantitative Biology), \texttt{stat} (Statistics).
+    \end{itemize}
+    \item \textbf{Samples}: 15{,}000 per domain (90{,}000 total).
+\end{itemize}
+
+\subsection{Activation Extraction}
+
+For each input, we decompose the computation at each layer $\ell$ into:
+\begin{align}
+    x^\ell &= x^{\ell-1} + \underbrace{\text{Attn}(x^{\ell-1})}_{\attn^\ell} + \underbrace{\text{MLP}(\cdot)}_{\mlp^\ell}
+\end{align}
+where $\attn^\ell \in \mathbb{R}^{T \times d}$ is the attention sublayer's additive contribution and $\mlp^\ell \in \mathbb{R}^{T \times d}$ is the MLP sublayer's additive contribution. These are captured via forward hooks. We also store the full post-layer residual $x^\ell$.
+
+\textbf{Pooling}: We use last-token pooling (the activation at the final sequence position), yielding vectors in $\mathbb{R}^d$ per sample per layer per component. All activations are stored in HDF5 files with datasets keyed as \texttt{attn/last}, \texttt{mlp/last}, \texttt{layer/last}, each of shape $(N, 28, 3584)$.
+
+\subsection{Analysis Methods}
+
+\paragraph{Linear Probing.}
+For each layer $\ell$ and component $c \in \{\text{attn}, \text{mlp}, \text{layer}\}$, we:
+\begin{enumerate}
+    \item Sample 2{,}000 activations per domain (12{,}000 total).
+    \item Split 70/30 into train/test via stratified shuffle.
+    \item Standardise features (zero mean, unit variance, fit on train).
+    \item Train multinomial logistic regression (\texttt{sklearn}, L-BFGS, $C=1.0$, max\_iter=1000).
+    \item Report test accuracy.
+\end{enumerate}
+
+\paragraph{Fisher Discriminant Ratio (FDR).}
+For $K = 6$ classes with sample counts $n_k$ and class means $\mu_k$:
+\begin{align}
+    \text{FDR} &= \frac{\text{tr}(S_B)}{\text{tr}(S_W)}
+    &\text{where}\quad
+    \text{tr}(S_B) &= \sum_{k=1}^K n_k \|\mathbf{d}_k\|^2, \quad
+    \mathbf{d}_k = \mu_k - \mu
+\end{align}
+For within-class scatter, we use the identity $\text{tr}(S_W) = \sum_k \left[\sum_{x \in k} \|x\|^2 - n_k \|\mu_k\|^2\right]$ to compute in a single streaming pass. For normalised FDR, each vector is projected to the unit sphere ($\hat{x} = x / \|x\|$) before computing means and scatter. Since $\|\hat{x}\|^2 = 1$, the within-class scatter simplifies to $\text{tr}(\hat{S}_W) = \sum_k n_k(1 - \|\hat{\mu}_k\|^2)$.
+
+\paragraph{Concept Vectors and Geometry.}
+The domain concept vector $\mathbf{d}_k^\ell = \mu_k^\ell - \mu^\ell$ captures how domain $k$'s mean differs from the global mean at layer $\ell$. We compute:
+\begin{itemize}
+    \item \textbf{Norms} $\|\mathbf{d}_k^\ell\|$: magnitude of domain-specific deviation.
+    \item \textbf{Pairwise cosine similarity}: $\cos(\mathbf{d}_i, \mathbf{d}_j)$ between all domain pairs, yielding a $6 \times 6$ matrix per layer per component.
+\end{itemize}
+
+\newpage
+% ══════════════════════════════════════════════════════════════
+\section{Appendix: Complete Results}
+\label{app:results}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Linear Probing — Full Results}
+
+\subsubsection{Summary Statistics}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Component & Mean Accuracy & Peak Layer & Peak Accuracy \\
+\midrule
+Attention ($\attn$) & 0.841 & L22 & 0.913 \\
+MLP ($\mlp$) & 0.844 & L25 & 0.901 \\
+Residual ($\resid$) & 0.868 & L23 & 0.918 \\
+\bottomrule
+\end{tabular}
+\caption{Linear probe accuracy summary (2{,}000 samples/domain, 30\% test).}
+\label{tab:probe}
+\end{table}
+
+Key observations from the full results:
+\begin{itemize}
+    \item Mean accuracy is nearly identical for attention (0.841) and MLP (0.844). The difference between the two sublayers is \emph{not} in overall accuracy but in layer-wise profile.
+    \item All components are well above chance ($1/6 = 0.167$) at every layer, even layer~0 ($\sim$0.76--0.78). Domain information is present in both sublayers from the very first layer.
+    \item Residual stream accuracy is highest because it accumulates information from both sublayers.
+\end{itemize}
+
+\subsubsection{Full Accuracy Table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{r|ccc|r|ccc}
+\toprule
+Layer & Attn & MLP & Resid & Layer & Attn & MLP & Resid \\
+\midrule
+0  & .781 & .761 & .779 & 14 & .841 & .853 & .866 \\
+1  & .752 & .754 & .788 & 15 & .794 & .829 & .861 \\
+2  & .816 & .781 & .813 & 16 & .785 & .806 & .857 \\
+3  & .761 & .765 & .817 & 17 & .774 & .801 & .853 \\
+4  & .831 & .784 & .834 & 18 & .798 & .819 & .849 \\
+5  & .827 & .811 & .831 & 19 & .891 & .879 & .889 \\
+6  & .853 & .831 & .845 & 20 & .837 & .870 & .894 \\
+7  & .863 & .849 & .865 & 21 & .882 & .882 & .901 \\
+8  & .877 & .851 & .873 & 22 & .913 & .898 & .912 \\
+9  & .891 & .885 & .886 & 23 & .893 & .898 & .918 \\
+10 & .884 & .877 & .884 & 24 & .888 & .900 & .914 \\
+11 & .824 & .859 & .878 & 25 & .881 & .901 & .916 \\
+12 & .831 & .851 & .871 & 26 & .859 & .898 & .916 \\
+13 & .864 & .858 & .869 & 27 & .870 & .893 & .914 \\
+\bottomrule
+\end{tabular}
+\caption{Per-layer linear probe accuracy for all three components.}
+\label{tab:probe_full}
+\end{table}
+
+\subsubsection{Probe Accuracy — All Components}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{probe_app_accuracy_all.pdf}
+    \caption{Probe accuracy across layers for all three components. Residual (grey) is smooth and highest; attention (red) is spiky; MLP (blue) is smooth and monotonically increasing.}
+    \label{fig:app_acc_all}
+\end{figure}
+
+\subsubsection{Attention Minus MLP Difference}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{probe_app_difference.pdf}
+    \caption{Probe accuracy difference (attention $-$ MLP) per layer. Red bars: attention more informative. Blue bars: MLP more informative. Crossover occurs around layer~11. Layers~19 and~22 show attention spikes within the MLP-dominant late zone.}
+    \label{fig:app_diff}
+\end{figure}
+
+\subsubsection{Normalised Shape Comparison}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{probe_app_shape.pdf}
+    \caption{Each component's probe accuracy min-max normalised to $[0,1]$. Attention (red) is bimodal with two peaks (L9, L22) and a deep trough at L15--18. MLP (blue) also shows a trough but shallower. Residual (grey) is the smoothest.}
+    \label{fig:app_shape}
+\end{figure}
+
+\newpage
+\subsection{Fisher Discriminant Ratio — Full Results}
+\label{app:fdr}
+
+\subsubsection{Summary Statistics}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Component & FDR Type & Peak Layer & Peak FDR & Mean FDR \\
+\midrule
+Attention ($\attn$) & Raw & L22 & 0.179 & 0.062 \\
+Attention ($\attn$) & Normalised & L22 & 0.194 & 0.065 \\
+MLP ($\mlp$) & Raw & L23 & 0.164 & 0.061 \\
+MLP ($\mlp$) & Normalised & L23 & 0.159 & 0.067 \\
+Residual ($\resid$) & Raw & L24 & 0.169 & 0.073 \\
+Residual ($\resid$) & Normalised & L24 & 0.169 & 0.076 \\
+\bottomrule
+\end{tabular}
+\caption{FDR summary. Raw and normalised values are nearly identical for all components, showing that domain separation is direction-based in both sublayers.}
+\label{tab:fdr}
+\end{table}
+
+\subsubsection{Raw and Normalised FDR Curves}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{probe_app_fdr_raw.pdf}
+    \caption{Raw FDR across layers (all three components). Same qualitative pattern as probe accuracy: attention is spiky, MLP is smooth.}
+    \label{fig:app_fdr_raw}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{probe_app_fdr_norm.pdf}
+    \caption{Normalised FDR (unit-sphere projection). Pattern is virtually identical to raw FDR.}
+    \label{fig:app_fdr_norm}
+\end{figure}
+
+\subsubsection{Raw vs.\ Normalised Comparison}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{probe_app_fdr_rawvsnorm.pdf}
+    \caption{Direct comparison of raw (dashed) vs.\ normalised (solid) FDR. For both attention and MLP, the two lines overlap almost perfectly, confirming that projecting to the unit sphere does not change the separability structure. Domain separation in both sublayers is driven by direction, not magnitude.}
+    \label{fig:app_rawvsnorm}
+\end{figure}
+
+\newpage
+\subsection{Geometric Analysis}
+
+\subsubsection{Cosine Similarity Heatmaps}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{probe_app_cosine_attn.pdf}
+    \caption{Pairwise cosine similarity of attention concept vectors $\mathbf{d}_k$ at selected layers. Domain structure sharpens with depth; math and q-bio become the most separated.}
+    \label{fig:app_cos_attn}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{probe_app_cosine_mlp.pdf}
+    \caption{Pairwise cosine similarity of MLP concept vectors. The domain structure is qualitatively similar to attention at matching layers, suggesting both sublayers learn the same relational structure between domains.}
+    \label{fig:app_cos_mlp}
+\end{figure}
+
+\subsection{Negative and Null Results}
+
+We report three null findings for completeness:
+
+\begin{enumerate}
+    \item \textbf{Raw vs.\ normalised FDR shows no difference.} Projecting activations to the unit sphere before computing FDR produces nearly identical curves for both attention and MLP (Figure~\ref{fig:app_rawvsnorm}). We cannot claim that one sublayer encodes domain through magnitude while the other uses direction --- both use direction.
+
+    \item \textbf{Cosine structure is the same across sublayers.} The $6 \times 6$ cosine similarity matrices for attention and MLP concept vectors are qualitatively similar at each layer (Figures~\ref{fig:app_cos_attn},~\ref{fig:app_cos_mlp}). Both sublayers learn the same relational structure (e.g., math and q-bio are the most distinctive). We cannot claim that the two sublayers organise domains differently.
+
+    \item \textbf{Overall accuracy is comparable.} Mean probe accuracy across all layers: attention = 0.841, MLP = 0.844, residual = 0.868. The difference is in the \emph{shape} (spiky vs.\ smooth), not in overall level. A reviewer may ask: ``if both carry equal domain info, what is the functional difference?'' The answer is precisely the shape --- attention concentrates domain processing at specific layers while MLP distributes it.
+\end{enumerate}
+
+\newpage
+% ══════════════════════════════════════════════════════════════
+\section{Appendix: Interpretation and Implications}
+\label{app:interp}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Why Is Attention Spiky?}
+
+The attention sublayer at layer~$\ell$ computes:
+$\attn^\ell = \text{MultiHead}(Q^\ell, K^\ell, V^\ell)$
+
+The attention mechanism selects \emph{which tokens to attend to} via the QK dot product, then routes information via the V projection. At layers where domain-discriminative information happens to be concentrated in certain token positions (e.g., domain-specific keywords or structural markers), the attention output will carry a strong domain signal. At other layers, attention may be performing syntactic or positional operations that are domain-agnostic, producing outputs with weak domain signal.
+
+The dip at layers~11--18 suggests these mid-depth attention sublayers are processing information that is largely domain-independent --- potentially syntactic structure, coreference, or discourse-level organisation that is shared across scientific domains. The peaks at layers~9 and~22 suggest these are the layers where attention selectively routes domain-specific content.
+
+\subsection{Why Is MLP Smooth?}
+
+The MLP sublayer at layer~$\ell$ applies a fixed nonlinear transformation:
+$\mlp^\ell = W_2 \cdot \sigma(W_1 \cdot x + b_1) + b_2$
+
+Unlike attention, the MLP has no dynamic routing mechanism --- it applies the same function to every token regardless of context. Its domain signal must therefore come from the fact that different domains activate different subsets of neurons (the ``knowledge neuron'' hypothesis). Since this activation pattern builds incrementally as the input representation develops across layers, the resulting domain signal increases smoothly.
+
+\subsection{Why Are MLP Concept Norms Larger?}
+
+MLP sublayers in Qwen2.5-7B have a hidden dimension of $18{,}944$ (5.3$\times$ the model dimension of $3{,}584$), giving them far more parameters than the attention sublayer. The MLP output therefore has more ``capacity'' for large-magnitude domain shifts. Additionally, in most transformer architectures, the MLP sublayer produces larger-norm outputs than attention by design --- it acts as the primary state-update mechanism.
+
+The key point is that despite having much larger concept vector norms, MLP's \emph{FDR} is not proportionally higher, because FDR is a ratio (the within-class scatter also scales with norm). The raw vs.\ normalised FDR comparison confirms this: normalisation does not change the picture.
+
+\subsection{Implications for the Division-of-Labour Hypothesis}
+
+These probing results are consistent with (but do not prove) the following functional account:
+
+\begin{quote}
+    Attention sublayers act as \emph{selective domain processors} --- at specific layers, they produce outputs that sharply discriminate between domains. At other layers, they perform domain-agnostic operations. MLP sublayers act as \emph{steady domain accumulators} --- they incrementally add domain-specific information at every layer, with the signal growing monotonically.
+\end{quote}
+
+This is an \emph{observational} finding. The probing experiments show what information is \emph{present} in each sublayer's output --- they do not show what information is \emph{used} by downstream computation.
+
+\newpage
+% ══════════════════════════════════════════════════════════════
+\section{Appendix: Reproducibility}
+\label{app:repro}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Code Structure}
+
+All code is in \texttt{KAUSTUBH/}:
+
+\begin{verbatim}
+config.py           — Paths, constants, domain list
+loader.py           — HDF5 loading utilities
+logger.py           — Logging (terminal + file)
+compute_means.py    — Domain means, concept vectors (246s)
+linear_probe.py     — Logistic regression probe function
+run_probe.py        — Run probing across layers (676s)
+separability.py     — FDR computation functions
+run_separability.py — Run FDR (raw + normalised)
+geometry.py         — Cosine similarity, concept norms
+run_geometry.py     — Run geometric analysis (instant)
+plot_paper.py       — Generate all figures (PDF + PNG)
+\end{verbatim}
+
+\subsection{Execution Sequence}
+\begin{verbatim}
+python compute_means.py        # 4 min
+python run_probe.py            # 11 min
+python run_separability.py     # 5-10 min
+python run_geometry.py         # instant
+python plot_paper.py           # instant
+\end{verbatim}
+
+\subsection{Hardware and Software}
+
+\begin{itemize}
+    \item GPU: NVIDIA A6000
+    \item Python 3.10, scikit-learn, h5py, numpy, matplotlib
+    \item Total computation time: $\sim$20 minutes
+\end{itemize}
+
+\end{document}

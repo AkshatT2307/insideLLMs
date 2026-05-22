@@ -1,0 +1,17 @@
+[plot_paper] started at 20260521_144336
+============================================================
+=== Main paper figures ===
+  probe_main_fig1
+  probe_main_fig2
+
+=== Appendix figures ===
+  probe_app_accuracy_all
+  probe_app_difference
+  probe_app_shape
+  probe_app_fdr_raw
+  probe_app_fdr_norm
+  probe_app_fdr_rawvsnorm
+  probe_app_cosine_attn
+  probe_app_cosine_mlp
+
+Done. All figures in /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/figures/

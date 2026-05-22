@@ -1,0 +1,62 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv.bak/
+.env
+
+# Python caching & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Heavy datasets and activations (not results)
+activations/
+arxiv_data/
+FineTuning/datasets/
+
+# Model weights and checkpoint files
+*.safetensors
+*.bin
+*.pth
+*.ckpt
+*.onnx
+*.pb
+
+# Ignore LoRA adapter directories explicitly
+FineTuning/adapters/
+
+# Globally ignore PyTorch/H5/Numpy tensor files, EXCEPT when they are results
+*.pt
+*.h5
+*.npz
+*.npy
+
+# Allow plots and results (keep these files, even if they match patterns above)
+!results/**
+!KAUSTUBH/results/**
+!FineTuning/experiments/results/**
+!FineTuning/experiments/plots/**
+
+# Specific files/formats to always keep
+!*.png
+!*.jpg
+!*.jpeg
+!*.pdf
+!*.json
+!*.md
+!*.txt

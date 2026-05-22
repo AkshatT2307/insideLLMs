@@ -1,0 +1,23 @@
+I need to prepare a report of the experiments, with some basic details about what is done, what are things that are computed, what was the hypothesis, are the results supporting it, or any other hypothesis that can be observed.
+
+@contextScopeItemMention 
+
+I only need to do this for the Finetuning experiments, and all those experiment code and results are in finetuning/experiments/
+
+So i want 3 main sections, 
+1. Finetuning
+2. Weight change norms
+3. Cross domain similariy
+4. domain specificity.
+
+
+
+For finetuning part, begin with how the finetuning was done by viewing@contextScopeItemMention , then give a general breifing that in epoch 1 both train and val performance increase but it overfits for epoch 2 and 3. And make a subplot of per-domain curve, like this @contextScopeItemMention .
+ 
+
+Each section(2,3,4) must contain the intial hypothesis that was written in pdf, the experiment method we did and the results we obtained (a basic summary of result and all the exhaustive result plots).  If the initial hypothesis wasn't supported then try to find some new ones, although i don't think this will be required.
+The plot must be one that defines the overview, then 1-2 domain wise, or across layers, everything must be for all 3 epochs and both modes (mean, last) wherever possible. 
+
+The text should be minimal, just key points, and no further bull shit. 
+
+Prepare a complete .tex file, with all the plots and everything, inside the finetuning/experiments

@@ -1,0 +1,8 @@
+[run_geometry] started at 20260521_140356
+============================================================
+Geometry analysis: 6 domains, 28 layers
+  attn: simplex_dev range [1.269, 2.555], best layer L26
+  mlp: simplex_dev range [1.478, 2.409], best layer L23
+  layer: simplex_dev range [1.565, 2.330], best layer L26
+
+  Saved to /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/geometry/geometry_results.npz

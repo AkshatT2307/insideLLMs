@@ -1,0 +1,99 @@
+{
+  "num_pairs": 30,
+  "num_patch_layers": 6,
+  "overall_consistency": {
+    "L4": {
+      "mean_across_pairs": 0.1095597363685836,
+      "std_across_pairs": 0.05292212763797931,
+      "fraction_positive": 1.0,
+      "fraction_negative": 0.0,
+      "min": 0.007160588148129628,
+      "max": 0.20437091345137698
+    },
+    "L8": {
+      "mean_across_pairs": 0.11992010355422203,
+      "std_across_pairs": 0.14966399618054252,
+      "fraction_positive": 0.767,
+      "fraction_negative": 0.233,
+      "min": -0.12734330729315949,
+      "max": 0.4281726497440283
+    },
+    "L12": {
+      "mean_across_pairs": 0.05267294364053513,
+      "std_across_pairs": 0.1738489113650483,
+      "fraction_positive": 0.6,
+      "fraction_negative": 0.4,
+      "min": -0.28202052118226795,
+      "max": 0.42587715909550755
+    },
+    "L16": {
+      "mean_across_pairs": 0.03237787069796656,
+      "std_across_pairs": 0.17030642993122064,
+      "fraction_positive": 0.533,
+      "fraction_negative": 0.467,
+      "min": -0.21431424763935458,
+      "max": 0.39658195737772517
+    },
+    "L20": {
+      "mean_across_pairs": 0.9776876903005118,
+      "std_across_pairs": 1.0792215281792328,
+      "fraction_positive": 0.667,
+      "fraction_negative": 0.333,
+      "min": -0.725288860364233,
+      "max": 2.6721401180080386
+    },
+    "L24": {
+      "mean_across_pairs": 6.801994814425815,
+      "std_across_pairs": 4.029402724222913,
+      "fraction_positive": 0.933,
+      "fraction_negative": 0.067,
+      "min": -0.817846562704354,
+      "max": 13.004130161199953
+    }
+  },
+  "zone_consistency": {
+    "4": {
+      "persist": 14,
+      "decay": 4,
+      "amplify": 12
+    },
+    "8": {
+      "persist": 18,
+      "reverse": 5,
+      "decay": 6,
+      "amplify": 1
+    },
+    "12": {
+      "amplify": 8,
+      "persist": 8,
+      "reverse": 9,
+      "decay": 5
+    },
+    "16": {
+      "amplify": 8,
+      "reverse": 10,
+      "persist": 7,
+      "decay": 5
+    },
+    "20": {
+      "amplify": 20,
+      "reverse": 10
+    },
+    "24": {
+      "amplify": 27,
+      "reverse": 2,
+      "decay": 1
+    }
+  },
+  "pair_correlation": {
+    "mean": 0.6185199742983072,
+    "std": 0.5408344496696053,
+    "min": -0.7620902348093045,
+    "max": 0.9989532153492304
+  },
+  "three_zone_test": {
+    "early_decay_fraction": 0.611,
+    "mid_reverse_fraction": 0.417,
+    "late_amplify_fraction": 0.9
+  }
+}

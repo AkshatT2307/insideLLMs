@@ -1,0 +1,1302 @@
+{
+  "zone_data": [
+    {
+      "pair": "cs->eess",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.1182633469505099,
+      "trend": -0.0016673054446899593
+    },
+    {
+      "pair": "cs->eess",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.1896358685160704,
+      "trend": -0.15734060378882989
+    },
+    {
+      "pair": "cs->eess",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.30016720425317495,
+      "trend": 0.27279981745515636
+    },
+    {
+      "pair": "cs->eess",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.2081838485325335,
+      "trend": 0.056899082458112954
+    },
+    {
+      "pair": "cs->eess",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.0480125273602823,
+      "trend": 0.4367694970197338
+    },
+    {
+      "pair": "cs->eess",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 6.1461154359140595,
+      "trend": 5.659048246323091
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 4,
+      "zone": "decay",
+      "mean_shift": 0.008407381658465597,
+      "trend": 0.22656081909467302
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.060214209069695636,
+      "trend": 0.45226436917781265
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.09277896044724715,
+      "trend": 0.44162071953317644
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.16331445406160805,
+      "trend": -0.22424362355857477
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.42569047482904,
+      "trend": 1.567603464334117
+    },
+    {
+      "pair": "cs->math",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 10.760006802603842,
+      "trend": 9.548413264455188
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.12557919727523142,
+      "trend": 0.09495826903235743
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.42538204497755017,
+      "trend": -0.2533782022960523
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.42587715909550755,
+      "trend": 0.3318632501710123
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.11373087108869484,
+      "trend": -0.3224597707600312
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.3544401914291844,
+      "trend": 0.8982910223618501
+    },
+    {
+      "pair": "cs->physics",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 11.057500682231469,
+      "trend": 9.077671806525709
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.16995796837275295,
+      "trend": -0.09752426300778172
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.23312881124577864,
+      "trend": -0.3528637576427279
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.2878104792075053,
+      "trend": 0.10852675005071338
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 16,
+      "zone": "decay",
+      "mean_shift": 0.024689740773010272,
+      "trend": -0.33393270541066705
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.5556444410111328,
+      "trend": 0.6402969337295656
+    },
+    {
+      "pair": "cs->q-bio",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 9.975266126125904,
+      "trend": 7.387385898932096
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.151822623919997,
+      "trend": 0.13405819916657302
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.27718159412265664,
+      "trend": -0.014054981891000073
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.19203589098460364,
+      "trend": 0.21962780245619382
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.166089763094351,
+      "trend": 0.03002484289099905
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.455380344754643,
+      "trend": 0.8566205844801738
+    },
+    {
+      "pair": "cs->stat",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 8.60262956643041,
+      "trend": 6.6013393736543104
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.14528661113298375,
+      "trend": 0.07131284244701372
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.11230461542271397,
+      "trend": -0.18489390053501972
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.1272993627741736,
+      "trend": 0.018203432252940632
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.18912043059024286,
+      "trend": 0.06831865122173394
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 0.7594438571524467,
+      "trend": 0.24489022294674767
+    },
+    {
+      "pair": "eess->cs",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 8.80082379738664,
+      "trend": 5.681120318858839
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.05598106344247978,
+      "trend": 0.3457896506768088
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 8,
+      "zone": "reverse",
+      "mean_shift": -0.08896530329520211,
+      "trend": 0.2169807151120154
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.09701552491982877,
+      "trend": 0.17596152873181256
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.18660332838190066,
+      "trend": -0.21284826052393738
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.6792157559284726,
+      "trend": 0.582997913606051
+    },
+    {
+      "pair": "eess->math",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 13.004130161199953,
+      "trend": 10.718682510341361
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.08140847594625245,
+      "trend": 0.1823542511803271
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.12874202693821113,
+      "trend": -0.25263359110178507
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.11051359560889303,
+      "trend": 0.20991039635946188
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 16,
+      "zone": "decay",
+      "mean_shift": -0.037242369596336394,
+      "trend": -0.285903440641452
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.6944134379724354,
+      "trend": 0.4311645502078534
+    },
+    {
+      "pair": "eess->physics",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 10.952418014254102,
+      "trend": 7.701684546555164
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.13455783720731632,
+      "trend": 0.06492026051676383
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": 0.012807599876399749,
+      "trend": -0.37269734586765324
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.14932972398149424,
+      "trend": 0.08890753607902452
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.06650692821963862,
+      "trend": -0.16463390892687454
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.1030283202010074,
+      "trend": 0.25512374556469486
+    },
+    {
+      "pair": "eess->q-bio",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 12.338657323862028,
+      "trend": 7.7593822945653415
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.17421669706593426,
+      "trend": 0.23203270969551887
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.09952949891944025,
+      "trend": -0.06357817386669527
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 12,
+      "zone": "decay",
+      "mean_shift": 0.03363871019714302,
+      "trend": 0.041064603474771345
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.15480103618729366,
+      "trend": 0.12375661897702536
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 0.875566609459082,
+      "trend": 0.19354587713559046
+    },
+    {
+      "pair": "eess->stat",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 11.39694603626817,
+      "trend": 8.112558599860378
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.08296956409895553,
+      "trend": 0.2870253685319621
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": 0.005913407340317323,
+      "trend": 0.5361803587826852
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.1894279896417759,
+      "trend": 0.11373147790761144
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.15314523779874234,
+      "trend": -0.0738437849978726
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.26828420453644997,
+      "trend": 0.023144783722206463
+    },
+    {
+      "pair": "math->cs",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 0.4917850516052536,
+      "trend": 0.46347410411960016
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.054101687154759694,
+      "trend": 0.23708222829326395
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 8,
+      "zone": "reverse",
+      "mean_shift": -0.050212971630910756,
+      "trend": 0.4328049795511796
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.28202052118226795,
+      "trend": 0.12937441810779376
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.163680626020243,
+      "trend": -0.013618530093286965
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.34503914808313757,
+      "trend": -0.1013467348883832
+    },
+    {
+      "pair": "math->eess",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 0.751144285071506,
+      "trend": 0.2901400005228245
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 4,
+      "zone": "decay",
+      "mean_shift": 0.04826271531981859,
+      "trend": 0.19777357061729753
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 8,
+      "zone": "reverse",
+      "mean_shift": -0.12734330729315949,
+      "trend": 0.22094422524200089
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.1522616681088947,
+      "trend": -0.005114066375763476
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.21431424763935458,
+      "trend": -0.10606137673106733
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.4575193266579722,
+      "trend": 0.1377548260439178
+    },
+    {
+      "pair": "math->physics",
+      "patch_layer": 24,
+      "zone": "reverse",
+      "mean_shift": -0.6702122194096735,
+      "trend": -1.524597210289216
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.06788611038733292,
+      "trend": 0.2274560185984904
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 8,
+      "zone": "reverse",
+      "mean_shift": -0.053887573835365264,
+      "trend": 0.4663059861437017
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.13704439103841756,
+      "trend": -0.053837931883794266
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.1867693085961645,
+      "trend": -0.10222941842399831
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.4245479082149682,
+      "trend": -0.1616407656467463
+    },
+    {
+      "pair": "math->q-bio",
+      "patch_layer": 24,
+      "zone": "decay",
+      "mean_shift": 0.0076351828592591126,
+      "trend": -0.10478401984752733
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.0676695476074666,
+      "trend": 0.18925875004707468
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 8,
+      "zone": "amplify",
+      "mean_shift": 0.10621780911228595,
+      "trend": 0.25837924736231
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 12,
+      "zone": "decay",
+      "mean_shift": -0.01520455657307678,
+      "trend": -0.08833748021911272
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.09274089191568598,
+      "trend": -0.10385904006289336
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.4212939825360486,
+      "trend": -0.03507475473207661
+    },
+    {
+      "pair": "math->stat",
+      "patch_layer": 24,
+      "zone": "reverse",
+      "mean_shift": -0.817846562704354,
+      "trend": -1.3010537900019536
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.15728693941419528,
+      "trend": 0.10970703979223029
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.22832260394564016,
+      "trend": -0.19763844237491157
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.164532716558438,
+      "trend": -0.055183723871381485
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.3368475913937998,
+      "trend": 0.07641426850890248
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.6721401180080386,
+      "trend": 1.041527573059971
+    },
+    {
+      "pair": "physics->cs",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 5.910186404042439,
+      "trend": 4.6739701057672605
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.09299370146340281,
+      "trend": 0.1035309287248466
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.15377111343721642,
+      "trend": -0.06275465685902279
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 12,
+      "zone": "decay",
+      "mean_shift": 0.029981321784489978,
+      "trend": -0.022958040108821565
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.28126671567548533,
+      "trend": 0.16736380333750253
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.3593025675091233,
+      "trend": 0.8693867244649556
+    },
+    {
+      "pair": "physics->eess",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 4.757983448947958,
+      "trend": 3.5553502531577874
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.11497315608386964,
+      "trend": 0.20851155491006768
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 8,
+      "zone": "reverse",
+      "mean_shift": -0.11853100105299513,
+      "trend": 0.3178842885170756
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 12,
+      "zone": "decay",
+      "mean_shift": -0.04049769825621012,
+      "trend": -0.02982841151203887
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.05333166421195998,
+      "trend": 0.09117869641180278
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 0.6570725782686023,
+      "trend": 1.076123840435856
+    },
+    {
+      "pair": "physics->math",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 3.4764797757986745,
+      "trend": 3.5652384391762193
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.12194475013659063,
+      "trend": 0.08442259118492564
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.17057521255386998,
+      "trend": -0.03955511532654818
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.19055314541167384,
+      "trend": -0.12627797361052182
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.31986804829762056,
+      "trend": 0.175542975065982
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.072263752971643,
+      "trend": 0.6013481886134349
+    },
+    {
+      "pair": "physics->q-bio",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 4.124835748171866,
+      "trend": 3.220820166208616
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.17712405625482208,
+      "trend": 0.04798436203359774
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.30904174335114015,
+      "trend": -0.31865728625368117
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.1556322357308586,
+      "trend": -0.28657314744187984
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 16,
+      "zone": "amplify",
+      "mean_shift": 0.39658195737772517,
+      "trend": 0.12401135699482874
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.2468134239454547,
+      "trend": 0.7152697095794789
+    },
+    {
+      "pair": "physics->stat",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 4.118336638698679,
+      "trend": 3.097601762471961
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.13435335220262234,
+      "trend": -0.08807438286717564
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.207445829327131,
+      "trend": -0.40193722444370156
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.20715792774336345,
+      "trend": -0.016681493162335054
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.08708978887998362,
+      "trend": -0.2069447437171284
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.5558824097197181,
+      "trend": 0.8949240273049985
+    },
+    {
+      "pair": "q-bio->cs",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 10.64866416954241,
+      "trend": 8.192291930808931
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.07327603721122669,
+      "trend": -0.012025512305999422
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.1843240853100253,
+      "trend": -0.3007752466202702
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 12,
+      "zone": "amplify",
+      "mean_shift": 0.1322067542498305,
+      "trend": 0.05929686439075901
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.12020079669039813,
+      "trend": -0.06863348592882557
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.4137543785029085,
+      "trend": 0.7045417548816453
+    },
+    {
+      "pair": "q-bio->eess",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 10.513336329178392,
+      "trend": 7.842851429641848
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 4,
+      "zone": "decay",
+      "mean_shift": 0.007160588148129628,
+      "trend": 0.04108055906538394
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": -0.03933139701180317,
+      "trend": 0.2469285220955565
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.09071802308234021,
+      "trend": 0.06000578379986807
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.13078696563701422,
+      "trend": -0.3223751526634473
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 2.007222572004435,
+      "trend": 1.205494269927772
+    },
+    {
+      "pair": "q-bio->math",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 10.676117999634007,
+      "trend": 9.846364743261635
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.10972729913090486,
+      "trend": 0.04657845185745703
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.3099839490407273,
+      "trend": -0.07263437551725482
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.21735837390709226,
+      "trend": -0.047529400701311286
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.06957642196775966,
+      "trend": -0.2630247655425643
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.817427478601468,
+      "trend": 0.7188559384028999
+    },
+    {
+      "pair": "q-bio->physics",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 8.768069853321174,
+      "trend": 7.539660721903847
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.09332457000000863,
+      "trend": -0.11549736232618069
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.2700513232612815,
+      "trend": -0.06730712774041048
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 12,
+      "zone": "persist",
+      "mean_shift": 0.24443345261218732,
+      "trend": -0.0722395502832757
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 16,
+      "zone": "persist",
+      "mean_shift": 0.08320954394101908,
+      "trend": -0.2588203535375906
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 20,
+      "zone": "amplify",
+      "mean_shift": 1.5034733693434053,
+      "trend": 0.5574982070287284
+    },
+    {
+      "pair": "q-bio->stat",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 9.600004181339921,
+      "trend": 7.808488268523911
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.20437091345137698,
+      "trend": 0.17977786317944672
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": 0.0028437496525984575,
+      "trend": -0.22236614383845274
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.10816830337161218,
+      "trend": -0.318438735268377
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 16,
+      "zone": "decay",
+      "mean_shift": -0.03962050299427662,
+      "trend": -0.08695784170804927
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.085748266936854,
+      "trend": 0.12068967790993125
+    },
+    {
+      "pair": "stat->cs",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 5.685982620931193,
+      "trend": 3.921919594484933
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 4,
+      "zone": "amplify",
+      "mean_shift": 0.1681696274616912,
+      "trend": 0.17814145927617425
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": 0.03016566268993899,
+      "trend": -0.10112862511646654
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.2221903707622635,
+      "trend": -0.31980978126739956
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 16,
+      "zone": "decay",
+      "mean_shift": -0.01531418036678666,
+      "trend": 0.01881268415023149
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.2682945235162418,
+      "trend": -0.2261270396875086
+    },
+    {
+      "pair": "stat->eess",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 6.052989868034563,
+      "trend": 4.5657853047994434
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 4,
+      "zone": "decay",
+      "mean_shift": 0.018962888401125897,
+      "trend": 0.10084425468375953
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 8,
+      "zone": "decay",
+      "mean_shift": -0.02669918529967651,
+      "trend": -0.05629751758290457
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.15417094299470496,
+      "trend": -0.16767187824652718
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.17019189640718846,
+      "trend": -0.08958647865082109
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.37856565578435736,
+      "trend": -0.10055112966882335
+    },
+    {
+      "pair": "stat->math",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 5.397211999691867,
+      "trend": 4.633523633082547
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.1839054757402633,
+      "trend": -0.04431353059494578
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.4281726497440283,
+      "trend": -0.5558345645992653
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 12,
+      "zone": "decay",
+      "mean_shift": -0.03417049583449205,
+      "trend": -0.4805487520365906
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 16,
+      "zone": "decay",
+      "mean_shift": -0.03386271948039768,
+      "trend": -0.16648759599405424
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.5509760233268993,
+      "trend": -0.1600948794362178
+    },
+    {
+      "pair": "stat->physics",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 5.672017022768832,
+      "trend": 4.416908180660779
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 4,
+      "zone": "persist",
+      "mean_shift": 0.1428479084170215,
+      "trend": -0.0726113680513856
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 8,
+      "zone": "persist",
+      "mean_shift": 0.15681843819105498,
+      "trend": -0.09333513331937499
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 12,
+      "zone": "reverse",
+      "mean_shift": -0.1396642657304181,
+      "trend": -0.5377775160802123
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 16,
+      "zone": "reverse",
+      "mean_shift": -0.11217229708681961,
+      "trend": -0.1916207110439385
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 20,
+      "zone": "reverse",
+      "mean_shift": -0.725288860364233,
+      "trend": -0.30664297188839373
+    },
+    {
+      "pair": "stat->q-bio",
+      "patch_layer": 24,
+      "zone": "amplify",
+      "mean_shift": 5.860628688973932,
+      "trend": 4.267927789971792
+    }
+  ],
+  "counts": {
+    "4": {
+      "amplify": 12,
+      "persist": 14,
+      "decay": 4,
+      "reverse": 0
+    },
+    "8": {
+      "amplify": 1,
+      "persist": 18,
+      "decay": 6,
+      "reverse": 5
+    },
+    "12": {
+      "amplify": 8,
+      "persist": 8,
+      "decay": 5,
+      "reverse": 9
+    },
+    "16": {
+      "amplify": 8,
+      "persist": 7,
+      "decay": 5,
+      "reverse": 10
+    },
+    "20": {
+      "amplify": 20,
+      "persist": 0,
+      "decay": 0,
+      "reverse": 10
+    },
+    "24": {
+      "amplify": 27,
+      "persist": 0,
+      "decay": 1,
+      "reverse": 2
+    }
+  }
+}

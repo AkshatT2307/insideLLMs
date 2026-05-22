@@ -1,0 +1,8 @@
+[plot_probe] started at 20260521_140034
+============================================================
+Generating probe plots...
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/probe/probe_accuracy.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/probe/probe_attn_minus_mlp.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/probe/probe_shape_comparison.png
+
+Done. All plots saved to results/probe/

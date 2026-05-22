@@ -62,7 +62,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "--max-length",
         type=int,
-        default=512,
+        default=384,
         help="Fixed tokenizer sequence length (truncate / pad to this).",
     )
     p.add_argument(

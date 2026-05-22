@@ -1,0 +1,39 @@
+[run_separability] started at 20260521_140447
+============================================================
+Separability (FDR) — raw + normalized
+  Domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+  Sample counts: [np.int64(15000), np.int64(14560), np.int64(15000), np.int64(15000), np.int64(15000), np.int64(15000)]
+
+  Streamed attn/cs (15000 samples)
+  Streamed attn/eess (14560 samples)
+  Streamed attn/math (15000 samples)
+  Streamed attn/physics (15000 samples)
+  Streamed attn/q-bio (15000 samples)
+  Streamed attn/stat (15000 samples)
+  Streamed mlp/cs (15000 samples)
+  Streamed mlp/eess (14560 samples)
+  Streamed mlp/math (15000 samples)
+  Streamed mlp/physics (15000 samples)
+  Streamed mlp/q-bio (15000 samples)
+  Streamed mlp/stat (15000 samples)
+  Streamed layer/cs (15000 samples)
+  Streamed layer/eess (14560 samples)
+  Streamed layer/math (15000 samples)
+  Streamed layer/physics (15000 samples)
+  Streamed layer/q-bio (15000 samples)
+  Streamed layer/stat (15000 samples)
+
+  attn:
+    Raw  FDR: peak L22 (0.178869), CV=0.577
+    Norm FDR: peak L22 (0.193862), CV=0.575
+
+  mlp:
+    Raw  FDR: peak L23 (0.164364), CV=0.626
+    Norm FDR: peak L23 (0.159303), CV=0.541
+
+  layer:
+    Raw  FDR: peak L24 (0.168812), CV=0.542
+    Norm FDR: peak L24 (0.169125), CV=0.507
+
+  Time: 301s
+  Saved to /home/psquare_a6000/Desktop/insideLLMs/KAUSTUBH/results/separability/

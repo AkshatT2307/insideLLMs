@@ -1,0 +1,313 @@
+nohup: ignoring input
+============================================================
+Experiment 2 — Metric 2: Domain Specificity of Updates
+  Adapter dir: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/adapters
+  Domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+  Epoch: 1
+============================================================
+  Loading ΔW for domain: cs (epoch 1)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: eess (epoch 1)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: math (epoch 1)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: physics (epoch 1)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: q-bio (epoch 1)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: stat (epoch 1)
+    Loaded 196 ΔW matrices
+
+  Computing similarities across 6 domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+
+  ───────────────────────────────────────────────────────
+  Summary: Mean Off-Diagonal Cosine Similarity (Averaged Across Layers)
+  ───────────────────────────────────────────────────────
+  Attention (grouped): 0.239271
+  MLP (grouped):       0.191148
+
+  Per-module breakdown:
+    [attn] q_proj      : 0.125823
+    [attn] k_proj      : 0.145391
+    [attn] v_proj      : 0.410652
+    [attn] o_proj      : 0.291180
+    [mlp ] gate_proj   : 0.125219
+    [mlp ] up_proj     : 0.212284
+    [mlp ] down_proj   : 0.288663
+
+  Prediction check (MLP should be LOWER than Attn):
+    Attn mean sim: 0.239271
+    MLP  mean sim: 0.191148
+    ✅ MLP updates are more domain-differentiated (lower similarity)
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/results/domain_specificity_epoch1.json
+
+============================================================
+Done!
+============================================================
+
+============================================================
+Experiment 2 — Metric 2: Domain Specificity of Updates
+  Adapter dir: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/adapters
+  Domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+  Epoch: 2
+============================================================
+  Loading ΔW for domain: cs (epoch 2)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: eess (epoch 2)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: math (epoch 2)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: physics (epoch 2)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: q-bio (epoch 2)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: stat (epoch 2)
+    Loaded 196 ΔW matrices
+
+  Computing similarities across 6 domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+
+  ───────────────────────────────────────────────────────
+  Summary: Mean Off-Diagonal Cosine Similarity (Averaged Across Layers)
+  ───────────────────────────────────────────────────────
+  Attention (grouped): 0.148699
+  MLP (grouped):       0.100056
+
+  Per-module breakdown:
+    [attn] q_proj      : 0.078033
+    [attn] k_proj      : 0.095913
+    [attn] v_proj      : 0.287635
+    [attn] o_proj      : 0.191652
+    [mlp ] gate_proj   : 0.056063
+    [mlp ] up_proj     : 0.127679
+    [mlp ] down_proj   : 0.207340
+
+  Prediction check (MLP should be LOWER than Attn):
+    Attn mean sim: 0.148699
+    MLP  mean sim: 0.100056
+    ✅ MLP updates are more domain-differentiated (lower similarity)
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/results/domain_specificity_epoch2.json
+
+============================================================
+Done!
+============================================================
+
+============================================================
+Experiment 2 — Metric 2: Domain Specificity of Updates
+  Adapter dir: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/adapters
+  Domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+  Epoch: 3
+============================================================
+  Loading ΔW for domain: cs (epoch 3)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: eess (epoch 3)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: math (epoch 3)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: physics (epoch 3)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: q-bio (epoch 3)
+    Loaded 196 ΔW matrices
+  Loading ΔW for domain: stat (epoch 3)
+    Loaded 196 ΔW matrices
+
+  Computing similarities across 6 domains: ['cs', 'eess', 'math', 'physics', 'q-bio', 'stat']
+
+  ───────────────────────────────────────────────────────
+  Summary: Mean Off-Diagonal Cosine Similarity (Averaged Across Layers)
+  ───────────────────────────────────────────────────────
+  Attention (grouped): 0.138709
+  MLP (grouped):       0.087963
+
+  Per-module breakdown:
+    [attn] q_proj      : 0.073181
+    [attn] k_proj      : 0.091149
+    [attn] v_proj      : 0.274322
+    [attn] o_proj      : 0.179702
+    [mlp ] gate_proj   : 0.049770
+    [mlp ] up_proj     : 0.118573
+    [mlp ] down_proj   : 0.196155
+
+  Prediction check (MLP should be LOWER than Attn):
+    Attn mean sim: 0.138709
+    MLP  mean sim: 0.087963
+    ✅ MLP updates are more domain-differentiated (lower similarity)
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/results/domain_specificity_epoch3.json
+
+============================================================
+Done!
+============================================================
+
+=================================================================
+  Generating All Experiment Plots
+=================================================================
+
+[1/3] Fine-tuning: Train & Val Perplexity
+──────────────────────────────────────────────────
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/train_val_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/cs_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/eess_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/math_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/physics_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/q-bio_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/stat_perplexity.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/1_finetuning/step_loss_all_domains.png
+
+[2/3] Weight Change Norms: δ across layers
+──────────────────────────────────────────────────
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/cs_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/cs_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/eess_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/eess_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/math_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/math_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/physics_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/physics_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/q-bio_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/q-bio_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/stat_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_1/stat_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/cs_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/cs_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/eess_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/eess_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/math_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/math_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/physics_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/physics_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/q-bio_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/q-bio_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/stat_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_2/stat_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/cs_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/cs_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/eess_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/eess_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/math_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/math_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/physics_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/physics_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/q-bio_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/q-bio_detailed.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/stat_grouped.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/2_weight_change_norms/epoch_3/stat_detailed.png
+
+[3/3] Domain Specificity: 6×6 Heatmaps
+──────────────────────────────────────────────────
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/attn_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/mlp_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/q_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/k_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/v_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/o_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/gate_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/up_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_1/down_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/attn_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/mlp_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/q_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/k_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/v_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/o_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/gate_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/up_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_2/down_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/attn_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/mlp_mean.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/q_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/k_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/v_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/o_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/gate_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/up_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/epoch_3/down_proj.png
+  Saved: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/3_domain_specificity/comparison/attn_vs_mlp_all_epochs.png
+
+=================================================================
+  Done! Generated 72 plots.
+  Output: /home/psquare_a6000/Desktop/insideLLMs/FineTuning/experiments/plots/
+=================================================================
+
+  Folder structure:
+    plots/
+      1_finetuning/
+        cs_perplexity.png
+        eess_perplexity.png
+        math_perplexity.png
+        physics_perplexity.png
+        q-bio_perplexity.png
+        stat_perplexity.png
+        step_loss_all_domains.png
+        train_val_perplexity.png
+      3_domain_specificity/
+        epoch_3/
+          attn_mean.png
+          down_proj.png
+          gate_proj.png
+          k_proj.png
+          mlp_mean.png
+          o_proj.png
+          q_proj.png
+          up_proj.png
+          v_proj.png
+        epoch_2/
+          attn_mean.png
+          down_proj.png
+          gate_proj.png
+          k_proj.png
+          mlp_mean.png
+          o_proj.png
+          q_proj.png
+          up_proj.png
+          v_proj.png
+        comparison/
+          attn_vs_mlp_all_epochs.png
+        epoch_1/
+          attn_mean.png
+          down_proj.png
+          gate_proj.png
+          k_proj.png
+          mlp_mean.png
+          o_proj.png
+          q_proj.png
+          up_proj.png
+          v_proj.png
+      2_weight_change_norms/
+        epoch_3/
+          cs_detailed.png
+          cs_grouped.png
+          eess_detailed.png
+          eess_grouped.png
+          math_detailed.png
+          math_grouped.png
+          physics_detailed.png
+          physics_grouped.png
+          q-bio_detailed.png
+          q-bio_grouped.png
+          stat_detailed.png
+          stat_grouped.png
+        epoch_2/
+          cs_detailed.png
+          cs_grouped.png
+          eess_detailed.png
+          eess_grouped.png
+          math_detailed.png
+          math_grouped.png
+          physics_detailed.png
+          physics_grouped.png
+          q-bio_detailed.png
+          q-bio_grouped.png
+          stat_detailed.png
+          stat_grouped.png
+        epoch_1/
+          cs_detailed.png
+          cs_grouped.png
+          eess_detailed.png
+          eess_grouped.png
+          math_detailed.png
+          math_grouped.png
+          physics_detailed.png
+          physics_grouped.png
+          q-bio_detailed.png
+          q-bio_grouped.png
+          stat_detailed.png
+          stat_grouped.png
