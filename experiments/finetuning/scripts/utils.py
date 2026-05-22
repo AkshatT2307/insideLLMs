@@ -25,6 +25,18 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 
+# Import shared model slug utility
+import sys as _sys
+_sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+try:
+    from utils.model_loader import get_model_slug
+except ImportError:
+    import re
+    def get_model_slug(model_name: str) -> str:
+        slug = model_name.split("/")[-1].lower()
+        slug = re.sub(r'[^a-z0-9._-]', '-', slug)
+        return slug
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Config
@@ -277,3 +289,18 @@ def get_device(cfg: dict) -> torch.device:
     if cfg["gpu"]["multi_gpu"]:
         return torch.device("cuda:0")
     return torch.device(cfg["gpu"]["device"])
+
+
+def resolve_results_dir(cfg: dict, script_dir: str) -> str:
+    """
+    Resolve the model-specific results directory.
+
+    Returns
+    -------
+    str : e.g. /path/to/experiments/finetuning/results/qwen2.5-7b
+    """
+    results_base = resolve_path(cfg.get("results_dir", "../results"), script_dir)
+    model_slug = get_model_slug(cfg["model"]["name"])
+    results_dir = os.path.join(results_base, model_slug)
+    os.makedirs(results_dir, exist_ok=True)
+    return results_dir

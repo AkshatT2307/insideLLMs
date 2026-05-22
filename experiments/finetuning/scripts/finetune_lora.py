@@ -38,6 +38,8 @@ from utils import (
     evaluate_perplexity,
     save_json,
     get_device,
+    resolve_results_dir,
+    get_model_slug,
 )
 
 
@@ -122,12 +124,19 @@ def finetune_domain(domain: str, cfg: dict, script_dir: str):
     cfg_lora = cfg["lora"]
     cfg_gpu = cfg["gpu"]
 
+    # Model-slug-aware paths
+    model_slug = get_model_slug(cfg["model"]["name"])
+    results_dir = resolve_results_dir(cfg, script_dir)
+
     dataset_dir = resolve_path(cfg_data["output_dir"], script_dir)
-    adapter_dir = resolve_path(cfg["paths"]["adapter_dir"], script_dir)
-    log_dir = resolve_path(cfg["paths"]["log_dir"], script_dir)
+    adapter_dir = os.path.join(results_dir, "adapters")
+    log_dir = os.path.join(results_dir, "logs")
+    os.makedirs(adapter_dir, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
 
     print(f"\n{'=' * 60}")
     print(f"LoRA Fine-Tuning — Domain: {domain}")
+    print(f"  Model: {cfg['model']['name']} ({model_slug})")
     print(f"  Epochs: {cfg_train['num_epochs']}")
     print(f"  Train batch: {cfg_train['train_batch_size']} × "
           f"{cfg_train['gradient_accumulation_steps']} accum = "

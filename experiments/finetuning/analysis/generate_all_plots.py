@@ -24,61 +24,55 @@ from collections import defaultdict
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")  # non-interactive backend
-import matplotlib.pyplot as plt
+
+# ─── Unified EMNLP plot style ───────────────────────────────────────────────
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)  # experiments/finetuning/
+ROOT_DIR = os.path.join(PROJECT_DIR, '..', '..')
+sys.path.insert(0, ROOT_DIR)
+
+from utils.plot_style import (
+    plt, setup_style, save_fig, ATTN_COLOR, MLP_COLOR, RES_COLOR,
+    DOMAIN_COLORS as EMNLP_DOMAIN_COLORS, DOMAIN_COLORS_LIST,
+    TEXT_WIDTH, COL_WIDTH,
+)
+from utils.model_loader import get_model_slug
 import matplotlib.ticker as ticker
 from matplotlib.gridspec import GridSpec
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Paths
-# ─────────────────────────────────────────────────────────────────────────────
+setup_style()
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(SCRIPT_DIR)  # FineTuning/
-LOGS_DIR = os.path.join(PROJECT_DIR, "logs")
-RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
-PLOTS_DIR = os.path.join(SCRIPT_DIR, "plots")
+# ─────────────────────────────────────────────────────────────────────────────
+# CLI — accept --model-name for model-agnostic paths
+# ─────────────────────────────────────────────────────────────────────────────
+def parse_cli():
+    p = argparse.ArgumentParser(description="Generate all finetuning experiment plots.")
+    p.add_argument("--model-name", type=str, default="Qwen/Qwen2.5-7B",
+                   help="HuggingFace model name — controls result path slug.")
+    return p.parse_args()
+
+_CLI = parse_cli()
+MODEL_SLUG = get_model_slug(_CLI.model_name)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Paths (routed through model slug)
+# ─────────────────────────────────────────────────────────────────────────────
+RESULTS_BASE = os.path.join(PROJECT_DIR, "results", MODEL_SLUG)
+LOGS_DIR = os.path.join(RESULTS_BASE, "logs")
+RESULTS_DIR = os.path.join(RESULTS_BASE, "analysis_results")
+PLOTS_DIR = os.path.join(RESULTS_BASE, "plots")
 
 DOMAINS = ["cs", "eess", "math", "physics", "q-bio", "stat"]
 EPOCHS = [1, 2, 3]
-NUM_LAYERS = 28
+NUM_LAYERS = 28  # Default for Qwen2.5-7B; will auto-detect if config available
 
+# Module/color constants remain for weight norm plots
 ATTN_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj"]
 MLP_MODULES = ["gate_proj", "up_proj", "down_proj"]
 ALL_MODULES = ATTN_MODULES + MLP_MODULES
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Style configuration
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Publication-quality settings
-plt.rcParams.update({
-    "font.family": "serif",
-    "font.size": 11,
-    "axes.titlesize": 13,
-    "axes.labelsize": 12,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10,
-    "legend.fontsize": 9,
-    "figure.dpi": 150,
-    "savefig.dpi": 200,
-    "savefig.bbox": "tight",
-    "savefig.pad_inches": 0.15,
-    "axes.grid": True,
-    "grid.alpha": 0.3,
-    "grid.linestyle": "--",
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-})
-
 # Color palettes
-DOMAIN_COLORS = {
-    "cs":      "#2196F3",  # blue
-    "eess":    "#FF9800",  # orange
-    "math":    "#4CAF50",  # green
-    "physics": "#9C27B0",  # purple
-    "q-bio":   "#F44336",  # red
-    "stat":    "#00BCD4",  # teal
-}
+DOMAIN_COLORS = EMNLP_DOMAIN_COLORS
 
 DOMAIN_LABELS = {
     "cs": "CS", "eess": "EESS", "math": "Math",

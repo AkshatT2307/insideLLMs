@@ -40,7 +40,12 @@ from exp_utils import (
     DEFAULT_DOMAINS,
     load_lora_deltas,
     save_json,
+    set_num_layers,
 )
+
+# Model slug utility
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+from utils.model_loader import get_model_slug
 
 
 def parse_args():
@@ -58,8 +63,12 @@ def parse_args():
         help="Which epoch checkpoint to use (default: 3).",
     )
     p.add_argument(
-        "--output-dir", type=str, default="../experiments/results",
-        help="Directory to save result logs.",
+        "--model-name", type=str, default="Qwen/Qwen2.5-7B",
+        help="Base model name (for model-slug path resolution).",
+    )
+    p.add_argument(
+        "--output-dir", type=str, default=None,
+        help="Directory to save result logs. Default: auto from model slug.",
     )
     return p.parse_args()
 
@@ -280,8 +289,12 @@ def main():
     args = parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    adapter_dir = os.path.normpath(os.path.join(script_dir, args.adapter_dir))
-    output_dir = os.path.normpath(os.path.join(script_dir, args.output_dir))
+    finetuning_dir = os.path.dirname(script_dir)  # experiments/finetuning/
+    model_slug = get_model_slug(args.model_name)
+    results_base = os.path.join(finetuning_dir, "results", model_slug)
+
+    adapter_dir = os.path.normpath(os.path.join(results_base, "adapters"))
+    output_dir = args.output_dir or os.path.normpath(os.path.join(results_base, "analysis_results"))
 
     # Auto-detect domains if not specified
     if args.domains:

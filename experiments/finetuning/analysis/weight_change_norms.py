@@ -39,7 +39,12 @@ from exp_utils import (
     load_base_weight_norms,
     group_by_layer_and_type,
     save_json,
+    set_num_layers,
 )
+
+# Model slug utility
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+from utils.model_loader import get_model_slug
 
 
 def parse_args():
@@ -212,8 +217,12 @@ def main():
     args = parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    adapter_dir = os.path.normpath(os.path.join(script_dir, args.adapter_dir))
-    output_dir = os.path.normpath(os.path.join(script_dir, args.output_dir))
+    finetuning_dir = os.path.dirname(script_dir)  # experiments/finetuning/
+    model_slug = get_model_slug(args.model_name)
+    results_base = os.path.join(finetuning_dir, "results", model_slug)
+
+    adapter_dir = os.path.normpath(os.path.join(results_base, "adapters"))
+    output_dir = os.path.normpath(os.path.join(results_base, "analysis_results"))
 
     # Auto-detect domains if not specified
     if args.domains:

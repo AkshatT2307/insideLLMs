@@ -30,6 +30,8 @@ from utils import (
     evaluate_perplexity,
     save_json,
     get_device,
+    resolve_results_dir,
+    get_model_slug,
 )
 
 
@@ -64,7 +66,9 @@ def main():
     set_seed(cfg["data"]["seed"])
 
     dataset_dir = resolve_path(cfg["data"]["output_dir"], script_dir)
-    log_dir = resolve_path(cfg["paths"]["log_dir"], script_dir)
+    results_dir = resolve_results_dir(cfg, script_dir)
+    log_dir = os.path.join(results_dir, "logs")
+    os.makedirs(log_dir, exist_ok=True)
     domains = args.domains or cfg["data"]["domains"]
 
     print(f"\n{'=' * 60}")

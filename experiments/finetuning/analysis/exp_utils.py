@@ -24,7 +24,12 @@ from safetensors import safe_open
 # Constants
 # ─────────────────────────────────────────────────────────────────────────────
 
-NUM_LAYERS = 28  # Qwen2.5-7B has 28 transformer layers
+NUM_LAYERS = 28  # Default: Qwen2.5-7B. Override via set_num_layers() or config.
+
+def set_num_layers(n: int):
+    """Override NUM_LAYERS for different architectures."""
+    global NUM_LAYERS
+    NUM_LAYERS = n
 
 # Attention modules (4)
 ATTN_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj"]
@@ -157,7 +162,7 @@ def load_lora_deltas(
 # Load base model weight norms
 # ─────────────────────────────────────────────────────────────────────────────
 
-def find_base_model_shards(model_name: str = "Qwen/Qwen2.5-7B") -> List[str]:
+def find_base_model_shards(model_name: str) -> List[str]:
     """
     Find the safetensor shard files for the base model in the HF cache.
     """
@@ -186,7 +191,7 @@ def find_base_model_shards(model_name: str = "Qwen/Qwen2.5-7B") -> List[str]:
 
 
 def load_base_weight_norms(
-    model_name: str = "Qwen/Qwen2.5-7B",
+    model_name: str,
 ) -> Dict[Tuple[int, str], float]:
     """
     Load the Frobenius norm of each base model weight matrix for the target modules.
@@ -218,7 +223,7 @@ def load_base_weight_norms(
 
 
 def load_base_weights(
-    model_name: str = "Qwen/Qwen2.5-7B",
+    model_name: str,
     layers: Optional[List[int]] = None,
     modules: Optional[List[str]] = None,
 ) -> Dict[Tuple[int, str], torch.Tensor]:
