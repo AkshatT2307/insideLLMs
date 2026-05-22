@@ -1,4 +1,10 @@
-# Python virtual environments
+# ══════════════════════════════════════════════════════════════════════════════
+# .gitignore — insideLLMs
+# ══════════════════════════════════════════════════════════════════════════════
+# Policy: Track all code, configs, plots, and results.
+#         Exclude model weights, activations, datasets, and venvs.
+
+# ── Python virtual environments ──────────────────────────────────────────────
 venv/
 .venv/
 env/
@@ -6,7 +12,7 @@ ENV/
 venv.bak/
 .env
 
-# Python caching & build artifacts
+# ── Python caching & build artifacts ─────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
@@ -17,19 +23,23 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+.eggs/
 
-# IDE and OS files
+# ── IDE and OS files ─────────────────────────────────────────────────────────
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# Heavy datasets and activations (not results)
-activations/
+# ── Heavy datasets (raw data, not results) ───────────────────────────────────
 arxiv_data/
-FineTuning/datasets/
+datasets/
 
-# Model weights and checkpoint files
+# ── HDF5 activation files (large, regenerable) ──────────────────────────────
+**/activations/
+*.h5
+
+# ── Model weights and checkpoint files ───────────────────────────────────────
 *.safetensors
 *.bin
 *.pth
@@ -37,26 +47,49 @@ FineTuning/datasets/
 *.onnx
 *.pb
 
-# Ignore LoRA adapter directories explicitly
-FineTuning/adapters/
+# ── LoRA adapter weights ────────────────────────────────────────────────────
+**/adapters/
 
-# Globally ignore PyTorch/H5/Numpy tensor files, EXCEPT when they are results
+# ── PyTorch/Numpy tensor files (large intermediate data) ────────────────────
 *.pt
-*.h5
 *.npz
 *.npy
 
-# Allow plots and results (keep these files, even if they match patterns above)
-!results/**
-!KAUSTUBH/results/**
-!FineTuning/experiments/results/**
-!FineTuning/experiments/plots/**
+# ── Old directories (kept for reference during migration) ────────────────────
+older_stuff/
+# KAUSTUBH/
+# FineTuning/
 
-# Specific files/formats to always keep
+# ══════════════════════════════════════════════════════════════════════════════
+# ALWAYS TRACKED — These override the patterns above
+# ══════════════════════════════════════════════════════════════════════════════
+
+# All plots and figures
 !*.png
 !*.jpg
 !*.jpeg
 !*.pdf
+!*.svg
+
+# All results metadata and summaries
 !*.json
+!*.csv
+
+# All documentation
 !*.md
 !*.txt
+!*.tex
+
+# All config files
+!*.yaml
+!*.yml
+!*.toml
+
+# Specific results directories — track their plots and JSON summaries
+!results/**/*.png
+!results/**/*.pdf
+!results/**/*.json
+!experiments/**/results/**/*.png
+!experiments/**/results/**/*.pdf
+!experiments/**/results/**/*.json
+!paper/**

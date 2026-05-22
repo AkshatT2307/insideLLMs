@@ -1,0 +1,77 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Objective}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Fine-Tuning Setup}{1}{section.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces LoRA fine-tuning configuration.\relax }}{1}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:config}{{1}{1}{LoRA fine-tuning configuration.\relax }{table.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Fine-Tuning Results}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Train (left) and validation (right) perplexity across epochs. Epoch 0 denotes the base model baseline. All domains improve on training data; validation diverges after epoch 1.\relax }}{2}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:perplexity}{{1}{2}{Train (left) and validation (right) perplexity across epochs. Epoch 0 denotes the base model baseline. All domains improve on training data; validation diverges after epoch 1.\relax }{figure.caption.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Perplexity across epochs. Best validation in \textbf  {bold}.\relax }}{2}{table.caption.3}\protected@file@percent }
+\newlabel{tab:perplexity}{{2}{2}{Perplexity across epochs. Best validation in \textbf {bold}.\relax }{table.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experiment 2.1: Weight Change Norms}{2}{section.3}\protected@file@percent }
+\newlabel{sec:wcn}{{3}{2}{Experiment 2.1: Weight Change Norms}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Hypothesis}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Method}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Results}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean relative weight change norm $\delta $ across all layers (Epoch 3). MLP consistently exceeds attention by 1.24--1.40$\times $.\relax }}{3}{table.caption.4}\protected@file@percent }
+\newlabel{tab:wcn}{{3}{3}{Mean relative weight change norm $\delta $ across all layers (Epoch 3). MLP consistently exceeds attention by 1.24--1.40$\times $.\relax }{table.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Grouped weight change norms ($\delta _{\text  {attn}}$ vs.\ $\delta _{\text  {mlp}}$) across layers for all six domains (Epoch 3). MLP (orange) consistently exceeds Attention (blue) at nearly every layer.\relax }}{4}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:wcn_all}{{2}{4}{Grouped weight change norms ($\delta _{\text {attn}}$ vs.\ $\delta _{\text {mlp}}$) across layers for all six domains (Epoch 3). MLP (orange) consistently exceeds Attention (blue) at nearly every layer.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiment 2.2: Domain Specificity of Updates}{4}{section.4}\protected@file@percent }
+\newlabel{sec:ds}{{4}{4}{Experiment 2.2: Domain Specificity of Updates}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Hypothesis}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Method}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Domain mixing scores --- grand mean across all 28 layers (Epoch 3). Lower = more domain-specialised.\relax }}{5}{table.caption.6}\protected@file@percent }
+\newlabel{tab:mixing}{{4}{5}{Domain mixing scores --- grand mean across all 28 layers (Epoch 3). Lower = more domain-specialised.\relax }{table.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Domain mixing scores across layers (Epoch 3). Higher values indicate more domain-mixed (less specialised) updates. Attention (blue) consistently shows higher mixing than MLP (orange), especially in early layers (0--9).\relax }}{5}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:mixing_layerwise}{{3}{5}{Domain mixing scores across layers (Epoch 3). Higher values indicate more domain-mixed (less specialised) updates. Attention (blue) consistently shows higher mixing than MLP (orange), especially in early layers (0--9).\relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Per-module domain mixing summary (grand mean across all layers, Epoch 3). Blue = attention modules, orange = MLP modules. \texttt  {gate\_proj} is the most domain-specialised module overall (lowest mixing score). Among attention modules, \texttt  {v\_proj} is the most domain-mixed.\relax }}{5}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:mixing_summary}{{4}{5}{Per-module domain mixing summary (grand mean across all layers, Epoch 3). Blue = attention modules, orange = MLP modules. \texttt {gate\_proj} is the most domain-specialised module overall (lowest mixing score). Among attention modules, \texttt {v\_proj} is the most domain-mixed.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{Module-wise drill-down.}{6}{section*.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Module-wise $6 \times 6$ similarity heatmaps at Layer 5 (Epoch 3). Top row: attention modules (q/k/v\_proj). Middle: o\_proj and pooled groups. Bottom: MLP modules (gate/up/down\_proj). All share a common colour scale. \texttt  {gate\_proj} (bottom-left) shows near-zero off-diagonal similarity --- almost perfectly domain-specialised. \texttt  {v\_proj} (top-right) shows the highest cross-domain similarity within attention.\relax }}{6}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:modulewise}{{5}{6}{Module-wise $6 \times 6$ similarity heatmaps at Layer 5 (Epoch 3). Top row: attention modules (q/k/v\_proj). Middle: o\_proj and pooled groups. Bottom: MLP modules (gate/up/down\_proj). All share a common colour scale. \texttt {gate\_proj} (bottom-left) shows near-zero off-diagonal similarity --- almost perfectly domain-specialised. \texttt {v\_proj} (top-right) shows the highest cross-domain similarity within attention.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiment 2.3: Domain Alignment}{6}{section.5}\protected@file@percent }
+\newlabel{sec:alignment}{{5}{6}{Experiment 2.3: Domain Alignment}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Hypothesis}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Method}{6}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Projection metric ($\rho $).}{7}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{SVD overlap metric.}{7}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Results}{7}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Mean domain alignment $\rho $ across all layers (Epoch 3, mean pool). MLP exceeds attention by $2\text  {--}4\times $ for every domain.\relax }}{7}{table.caption.13}\protected@file@percent }
+\newlabel{tab:alignment}{{5}{7}{Mean domain alignment $\rho $ across all layers (Epoch 3, mean pool). MLP exceeds attention by $2\text {--}4\times $ for every domain.\relax }{table.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Domain alignment across layers for CS (Epoch 3, mean pool). Left: projection metric $\rho $. Right: SVD overlap. In both, MLP (orange) dramatically exceeds attention (blue), with sharp peaks at layers 5, 10, 14, and 23.\relax }}{7}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:alignment_cs}{{6}{7}{Domain alignment across layers for CS (Epoch 3, mean pool). Left: projection metric $\rho $. Right: SVD overlap. In both, MLP (orange) dramatically exceeds attention (blue), with sharp peaks at layers 5, 10, 14, and 23.\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Summary: mean $\rho $ across layers for all domains and all three epochs (mean pool). MLP consistently exceeds attention, and the gap \emph  {widens} with more training.\relax }}{8}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:alignment_summary}{{7}{8}{Summary: mean $\rho $ across layers for all domains and all three epochs (mean pool). MLP consistently exceeds attention, and the gap \emph {widens} with more training.\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Special Finding: The \texttt  {gate\_proj} Anomaly}{8}{section.6}\protected@file@percent }
+\newlabel{sec:gate}{{6}{8}{Special Finding: The \texttt {gate\_proj} Anomaly}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}What is \texttt  {gate\_proj}?}{8}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Evidence Across Experiments}{8}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces \texttt  {gate\_proj} vs.\ other modules (averaged across all domains, Epoch 3).\relax }}{8}{table.caption.16}\protected@file@percent }
+\newlabel{tab:gate}{{6}{8}{\texttt {gate\_proj} vs.\ other modules (averaged across all domains, Epoch 3).\relax }{table.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The \texttt  {gate\_proj} anomaly: in both weight change norms (left) and domain alignment (right), \texttt  {gate\_proj} (solid orange) dominates all other modules across layers. The pattern is consistent across domains.\relax }}{9}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:gate_finding}{{8}{9}{The \texttt {gate\_proj} anomaly: in both weight change norms (left) and domain alignment (right), \texttt {gate\_proj} (solid orange) dominates all other modules across layers. The pattern is consistent across domains.\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{Interpretation.}{9}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Summary}{9}{section.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Summary of all three metrics (Epoch 3, averaged across domains).\relax }}{9}{table.caption.19}\protected@file@percent }
+\newlabel{tab:summary}{{7}{9}{Summary of all three metrics (Epoch 3, averaged across domains).\relax }{table.caption.19}{}}
+\gdef \@abspage@last{10}

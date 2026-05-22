@@ -1,0 +1,45 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# Probing Experiment Configuration
+# ══════════════════════════════════════════════════════════════════════════════
+# Change the model section to run on different architectures.
+# All results are stored under results/{model_slug}/.
+
+# ── Model ────────────────────────────────────────────────────────────────────
+model:
+  name: "Qwen/Qwen2.5-7B"
+  dtype: "bfloat16"               # float16 | bfloat16 | float32
+  device: "auto"                  # auto | cuda:0 | cpu
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data:
+  data_dir: "../../arxiv_data"    # path to raw CSVs (relative to scripts/)
+  domains:
+    - "cs"
+    - "eess"
+    - "math"
+    - "physics"
+    - "q-bio"
+    - "stat"
+  seed: 42
+
+# ── Activation Extraction ────────────────────────────────────────────────────
+extraction:
+  samples_per_domain: 5000
+  batch_size: 32
+  num_workers: 4
+  max_length: 512
+  pooling: "last"                 # last | mean
+  components:
+    - "attn"
+    - "mlp"
+    - "layer"
+
+# ── Probing ──────────────────────────────────────────────────────────────────
+probing:
+  samples_per_domain: 2000
+  test_size: 0.3
+
+# ── Paths ────────────────────────────────────────────────────────────────────
+# Results go to results/{model_slug}/ automatically.
+# Override results_dir to change the base.
+results_dir: "./results"

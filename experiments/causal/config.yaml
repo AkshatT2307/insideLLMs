@@ -1,0 +1,46 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# Causal Activation Patching Configuration
+# ══════════════════════════════════════════════════════════════════════════════
+# Change model.name to run on different architectures.
+# Results are stored under results/{model_slug}/.
+
+# ── Model ────────────────────────────────────────────────────────────────────
+model:
+  name: "Qwen/Qwen2.5-7B"
+  dtype: "bfloat16"               # float16 | bfloat16 | float32
+  device: "auto"                  # auto | cuda:0 | cpu
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data:
+  data_dir: "../../../arxiv_data"   # path to raw CSVs
+  domains:
+    - "cs"
+    - "eess"
+    - "math"
+    - "physics"
+    - "q-bio"
+    - "stat"
+  samples_per_domain: 500
+  max_length: 384
+  seed: 42
+
+# ── Patching ─────────────────────────────────────────────────────────────────
+patching:
+  batch_size: 16
+  num_workers: 4
+  pooling: "mean"                 # last | mean
+  patch_layers: [4, 8, 12, 16, 20, 24]
+  num_patching_samples: 100
+
+# ── Domain Vectors ───────────────────────────────────────────────────────────
+domain_vectors:
+  batch_size: 64
+
+# ── Final Shift ──────────────────────────────────────────────────────────────
+final_shift:
+  num_samples: 50
+  batch_size: 8
+
+# ── Paths ────────────────────────────────────────────────────────────────────
+# Results go to results/{model_slug}/ automatically.
+results_dir: "./results"
