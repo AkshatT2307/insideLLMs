@@ -50,16 +50,36 @@ class ActivationStore:
         """
         self.attention_mask = mask
 
-    def register_hooks(self, model: torch.nn.Module) -> None:
+    def register_hooks(self, model: torch.nn.Module, model_info: Optional[dict] = None) -> None:
         """
         Register forward hooks on every decoder layer of the model.
 
-        Expects ``model.model.layers`` to be a list of decoder layers,
-        each with ``.self_attn`` and ``.mlp`` sub-modules.
-        This works for the Qwen2 / Qwen2.5 family and most LLaMA-style
-        architectures in HuggingFace transformers.
+        Parameters
+        ----------
+        model : nn.Module
+            The loaded transformer model.
+        model_info : dict, optional
+            Architecture info from ``model_loader.load_model_from_config``.
+            If None, falls back to ``model.model.layers`` (Qwen/LLaMA-style).
         """
-        layers = model.model.layers
+        if model_info is not None:
+            # Use architecture registry for model-agnostic layer resolution
+            arch = model_info["arch_config"]
+            layers_attr = arch["layers_attr"]
+            attn_attr = arch["attn_attr"]
+            mlp_attr = arch["mlp_attr"]
+
+            # Resolve layers list
+            obj = model
+            for attr in layers_attr:
+                obj = getattr(obj, attr)
+            layers = obj
+        else:
+            # Legacy fallback: Qwen/LLaMA-style
+            layers = model.model.layers
+            attn_attr = "self_attn"
+            mlp_attr = "mlp"
+
         if len(layers) != self.num_layers:
             raise ValueError(
                 f"Model has {len(layers)} layers but ActivationStore "
@@ -68,17 +88,16 @@ class ActivationStore:
 
         for i, layer in enumerate(layers):
             # Δaℓ — self-attention output (before residual add)
-            # self_attn.forward() returns a tuple: (attn_output, attn_weights, ...)
-            h1 = layer.self_attn.register_forward_hook(
+            attn_module = getattr(layer, attn_attr)
+            h1 = attn_module.register_forward_hook(
                 self._make_hook("attn", i, output_is_tuple=True)
             )
             # Δmℓ — MLP output (before residual add)
-            # mlp.forward() returns a single tensor
-            h2 = layer.mlp.register_forward_hook(
+            mlp_module = getattr(layer, mlp_attr)
+            h2 = mlp_module.register_forward_hook(
                 self._make_hook("mlp", i, output_is_tuple=False)
             )
             # x^{ℓ+1} — full decoder layer output (after both residual adds)
-            # DecoderLayer.forward() returns a tuple: (hidden_states, ...)
             h3 = layer.register_forward_hook(
                 self._make_hook("layer", i, output_is_tuple=True)
             )

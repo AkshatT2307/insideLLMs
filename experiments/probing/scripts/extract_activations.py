@@ -3,19 +3,22 @@
 extract_activations.py — Main CLI for extracting LLM activations.
 
 Extracts per-layer activations (attention, MLP, full layer) in both
-pooling modes (last-token, mean) from a Qwen-family model and saves
-them as one HDF5 file per domain.
+pooling modes (last-token, mean) from any supported model and saves
+them as one HDF5 file per domain under results/{model_slug}/activations/.
+
+Supports: Qwen, Llama, Pythia (GPT-NeoX) model families.
 
 Example
 -------
     python extract_activations.py \
-        --model Qwen/Qwen2.5-7B \
-        --data-dir ./arxiv_data \
-        --output-dir ./activations \
-        --max-length 512 \
-        --batch-size 32 \
+        --model EleutherAI/pythia-2.8b \
+        --data-dir ../../arxiv_data \
         --samples-per-domain 3500 \
-        --dtype bfloat16
+        --batch-size 32
+
+    python extract_activations.py \
+        --model Qwen/Qwen2.5-7B \
+        --data-dir ../../arxiv_data
 """
 
 import argparse
@@ -26,11 +29,20 @@ from typing import Optional
 
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from data_utils import load_domain_data, tokenize_domain, make_dataloader
-from hooks import ActivationStore
-from storage import create_hdf5, write_batch, close_hdf5
+# ── resolve project root for imports ─────────────────────────────────────────
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.join(SCRIPT_DIR, "..", "..", "..")
+sys.path.insert(0, os.path.abspath(PROJECT_DIR))
+
+from utils.data_utils import load_domain_data, tokenize_domain, make_dataloader
+from utils.hooks import ActivationStore
+from utils.storage import create_hdf5, write_batch, close_hdf5
+from utils.model_loader import (
+    load_model_from_config,
+    get_model_slug,
+    get_embed_device,
+)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -45,19 +57,19 @@ def parse_args() -> argparse.Namespace:
         "--model",
         type=str,
         default="Qwen/Qwen2.5-7B",
-        help="HuggingFace model identifier (must be a Qwen / LLaMA-style decoder).",
+        help="HuggingFace model identifier.",
     )
     p.add_argument(
         "--data-dir",
         type=str,
-        required=True,
+        default="../../arxiv_data",
         help="Directory containing per-domain CSV files (cs.csv, math.csv, …).",
     )
     p.add_argument(
         "--output-dir",
         type=str,
-        default="./activations",
-        help="Directory where per-domain HDF5 files will be saved.",
+        default=None,
+        help="Override output directory. Default: ../results/{model_slug}/activations",
     )
     p.add_argument(
         "--max-length",
@@ -119,55 +131,6 @@ def parse_args() -> argparse.Namespace:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# model + tokenizer
-# ─────────────────────────────────────────────────────────────────────────────
-def load_model_and_tokenizer(
-    model_name: str,
-    dtype_str: str,
-    device_map: str,
-):
-    """Load model in eval mode and configure tokenizer for left-padding."""
-
-    dtype_map = {
-        "float16": torch.float16,
-        "bfloat16": torch.bfloat16,
-        "float32": torch.float32,
-    }
-    torch_dtype = dtype_map[dtype_str]
-
-    print(f"\n{'='*60}")
-    print(f"Loading model: {model_name}")
-    print(f"  dtype  : {dtype_str}")
-    print(f"  device : {device_map}")
-    print(f"{'='*60}\n")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-
-    # ── ensure left-padding (critical for last-token extraction) ─────────
-    tokenizer.padding_side = "left"
-    if tokenizer.pad_token is None:
-        # Qwen models typically don't set a pad token; use eos as pad
-        tokenizer.pad_token = tokenizer.eos_token
-        tokenizer.pad_token_id = tokenizer.eos_token_id
-
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        torch_dtype=torch_dtype,
-        device_map=device_map,
-        trust_remote_code=True,
-    )
-    model.eval()
-
-    # ── read architectural constants from config ─────────────────────────
-    config = model.config
-    num_layers = config.num_hidden_layers
-    hidden_dim = config.hidden_size
-    print(f"  Model loaded — {num_layers} layers, d={hidden_dim}\n")
-
-    return model, tokenizer, num_layers, hidden_dim
-
-
-# ─────────────────────────────────────────────────────────────────────────────
 # main extraction loop
 # ─────────────────────────────────────────────────────────────────────────────
 def extract_for_domain(
@@ -176,6 +139,7 @@ def extract_for_domain(
     model,
     tokenizer,
     store: ActivationStore,
+    model_info: dict,
     args: argparse.Namespace,
     num_layers: int,
     hidden_dim: int,
@@ -227,12 +191,7 @@ def extract_for_domain(
         indices = batch["index"].tolist()
 
         # Determine the device to send inputs to.
-        # With device_map="auto", model.device may not exist; use the
-        # embedding layer's device which is where input_ids must land.
-        try:
-            target_device = model.model.embed_tokens.weight.device
-        except AttributeError:
-            target_device = next(model.parameters()).device
+        target_device = get_embed_device(model, model_info)
 
         input_ids = input_ids.to(target_device)
         attention_mask = attention_mask.to(target_device)
@@ -278,19 +237,41 @@ def extract_for_domain(
 def main():
     args = parse_args()
 
-    # ── load model ───────────────────────────────────────────────────────
-    model, tokenizer, num_layers, hidden_dim = load_model_and_tokenizer(
-        args.model, args.dtype, args.device,
-    )
+    # ── Build cfg dict from CLI args ─────────────────────────────────────
+    cfg = {
+        "model": {
+            "name": args.model,
+            "dtype": args.dtype,
+            "device": args.device,
+        }
+    }
 
-    # ── register hooks ───────────────────────────────────────────────────
+    # ── load model via unified loader ────────────────────────────────────
+    model, tokenizer, model_info = load_model_from_config(cfg)
+    num_layers = model_info["num_layers"]
+    hidden_dim = model_info["hidden_dim"]
+    model_slug = model_info["slug"]
+
+    # ── Resolve output directory ─────────────────────────────────────────
+    if args.output_dir is None:
+        probing_dir = os.path.join(SCRIPT_DIR, "..")
+        args.output_dir = os.path.join(probing_dir, "results", model_slug, "activations")
+    os.makedirs(args.output_dir, exist_ok=True)
+    print(f"  Output directory: {os.path.abspath(args.output_dir)}")
+
+    # ── register hooks (model-agnostic) ──────────────────────────────────
     store = ActivationStore(num_layers=num_layers)
-    store.register_hooks(model)
+    store.register_hooks(model, model_info=model_info)
+
+    # ── Resolve data directory ───────────────────────────────────────────
+    data_dir = args.data_dir
+    if not os.path.isabs(data_dir):
+        data_dir = os.path.normpath(os.path.join(SCRIPT_DIR, data_dir))
 
     # ── load data ────────────────────────────────────────────────────────
     print("Loading dataset …")
     domain_data = load_domain_data(
-        data_dir=args.data_dir,
+        data_dir=data_dir,
         samples_per_domain=args.samples_per_domain,
         seed=args.seed,
     )
@@ -304,8 +285,6 @@ def main():
             print(f"[ERROR] No matching domains found for: {args.domains}")
             sys.exit(1)
 
-    os.makedirs(args.output_dir, exist_ok=True)
-
     # ── extract per domain ───────────────────────────────────────────────
     total_samples = sum(len(v) for v in domain_data.values())
     print(f"Starting extraction — {total_samples:,} samples across {len(domain_data)} domains\n")
@@ -318,6 +297,7 @@ def main():
             model=model,
             tokenizer=tokenizer,
             store=store,
+            model_info=model_info,
             args=args,
             num_layers=num_layers,
             hidden_dim=hidden_dim,
@@ -328,6 +308,7 @@ def main():
     elapsed_total = time.time() - t_start
     print(f"\n{'='*60}")
     print(f"All done!  {total_samples:,} samples in {elapsed_total:.1f}s")
+    print(f"Model: {args.model} ({model_slug})")
     print(f"Output directory: {os.path.abspath(args.output_dir)}")
     print(f"{'='*60}")
 
